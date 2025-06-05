@@ -21,165 +21,127 @@ jobs:
     - name: Install Dependencies
       run: |
         # 安装必要工具
-        brew install ldid dpkg make
+        brew install ldid dpkg
         
-    - name: Setup Theos
+    - name: Show Environment Info
       run: |
-        # 下载并安装Theos
-        echo "=== Installing Theos ==="
-        sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
-        sudo chown -R $(whoami) /opt/theos
+        echo "=== Environment Information ==="
+        xcodebuild -version
+        xcrun --show-sdk-path --sdk iphoneos
+        clang --version
         
-        # 下载iOS SDK
-        echo "=== Downloading iOS SDK ==="
-        curl -LO https://github.com/theos/sdks/archive/master.zip
-        unzip master.zip
-        cp -r sdks-master/* /opt/theos/sdks/
+        echo "=== Project Structure ==="
+        ls -la
+        find 模拟返回 -type f
         
-        # 设置环境变量
-        echo "THEOS=/opt/theos" >> $GITHUB_ENV
-        echo "/opt/theos/bin" >> $GITHUB_PATH
-        
-        # 显示Theos信息
-        echo "=== Theos Setup Complete ==="
-        ls -la /opt/theos/
-        ls -la /opt/theos/sdks/
-    
-    - name: Create Theos Makefile
+    - name: Build Dylib with Clang
       run: |
-        # 为项目创建Makefile
-        cat > Makefile << 'EOF'
-        ARCHS = arm64
-        TARGET = iphone:clang:16.5:12.0
+        echo "=== Building dylib with clang ==="
         
-        include $(THEOS)/makefiles/common.mk
+        # 获取iOS SDK路径
+        IOS_SDK=$(xcrun --show-sdk-path --sdk iphoneos)
+        echo "iOS SDK Path: $IOS_SDK"
         
-        TWEAK_NAME = 1212
-        
-        1212_FILES = 模拟返回/wyURLProtocol.m
-        1212_FRAMEWORKS = UIKit Foundation AVFoundation
-        1212_LIBRARIES = z
-        1212_CFLAGS = -fobjc-arc
-        
-        include $(THEOS)/makefiles/tweak.mk
-        
-        after-install::
-        	install.exec "killall -9 SpringBoard"
-        EOF
-        
-        echo "=== Generated Makefile ==="
-        cat Makefile
-    
-    - name: Build with Theos
-      run: |
-        echo "=== Building with Theos ==="
-        export THEOS=/opt/theos
-        export PATH="/opt/theos/bin:$PATH"
-        
-        # 显示环境信息
-        echo "THEOS: $THEOS"
-        echo "PATH: $PATH"
-        which make
-        
-        # 清理并构建
-        make clean || echo "Clean failed, continuing..."
-        make package DEBUG=0
-        
-        echo "=== Build completed ==="
-        
-        # 查找生成的文件
-        echo "=== Looking for build products ==="
-        find . -name "*.dylib" -o -name "*.deb" | head -10
-        
-        # 显示.theos目录内容
-        echo "=== .theos directory ==="
-        find .theos -type f 2>/dev/null | head -20 || echo ".theos not found"
-    
-    - name: Package Results
-      run: |
         # 创建输出目录
         mkdir -p ./output
         
-        # 查找dylib文件
-        DYLIB_PATH=""
-        if [ -f ".theos/obj/debug/1212.dylib" ]; then
-          DYLIB_PATH=".theos/obj/debug/1212.dylib"
-        elif [ -f ".theos/obj/1212.dylib" ]; then
-          DYLIB_PATH=".theos/obj/1212.dylib"
-        else
-          DYLIB_PATH=$(find .theos -name "*.dylib" -type f | head -1)
-        fi
+        # 直接使用clang编译dylib
+        clang -arch arm64 \
+              -dynamiclib \
+              -isysroot "$IOS_SDK" \
+              -mios-version-min=12.0 \
+              -framework Foundation \
+              -framework UIKit \
+              -framework AVFoundation \
+              -lz \
+              -fobjc-arc \
+              -Xlinker -install_name \
+              -Xlinker /Library/MobileSubstrate/DynamicLibraries/1212.dylib \
+              -o ./output/1212.dylib \
+              模拟返回/wyURLProtocol.m
         
-        if [ -n "$DYLIB_PATH" ] && [ -f "$DYLIB_PATH" ]; then
-          echo "✅ Found dylib at: $DYLIB_PATH"
-          cp "$DYLIB_PATH" ./output/1212.dylib
+        # 检查编译结果
+        if [ -f "./output/1212.dylib" ]; then
+          echo "✅ Compilation successful!"
           
           # 显示文件信息
-          echo "=== Dylib Info ==="
-          ls -la "$DYLIB_PATH"
-          file "$DYLIB_PATH"
+          ls -la ./output/1212.dylib
+          file ./output/1212.dylib
+          
+          # 显示dylib架构信息
+          lipo -info ./output/1212.dylib || echo "lipo info not available"
           
           # 签名dylib
+          echo "=== Signing dylib ==="
           ldid -S ./output/1212.dylib
           echo "✅ Dylib signed successfully"
+          
         else
-          echo "❌ No dylib found, trying alternative approach..."
+          echo "❌ Compilation failed"
+          exit 1
+        fi
+    
+    - name: Create Deb Package
+      run: |
+        echo "=== Creating deb package ==="
+        
+        if [ -f "./output/1212.dylib" ] && [ -d "BylibKjc/Package" ]; then
+          # 准备包目录结构
+          mkdir -p BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
           
-          # 尝试手动编译
-          echo "=== Manual compilation ==="
-          clang -arch arm64 \
-                -dynamiclib \
-                -isysroot $(xcrun --show-sdk-path --sdk iphoneos) \
-                -mios-version-min=12.0 \
-                -framework Foundation \
-                -framework UIKit \
-                -framework AVFoundation \
-                -lz \
-                -fobjc-arc \
-                -o ./output/1212.dylib \
-                模拟返回/wyURLProtocol.m
+          # 复制dylib到包目录
+          cp ./output/1212.dylib BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
           
-          if [ -f "./output/1212.dylib" ]; then
-            echo "✅ Manual compilation successful"
-            ldid -S ./output/1212.dylib
+          # 显示包结构
+          echo "Package structure:"
+          find BylibKjc/Package -type f
+          
+          # 检查control文件
+          if [ -f "BylibKjc/Package/DEBIAN/control" ]; then
+            echo "Control file content:"
+            cat BylibKjc/Package/DEBIAN/control
           else
-            echo "❌ Manual compilation failed"
-            exit 1
+            echo "⚠️ Warning: No control file found"
           fi
-        fi
-        
-        # 查找deb包
-        DEB_PATH=$(find . -name "*.deb" -type f | head -1)
-        if [ -n "$DEB_PATH" ] && [ -f "$DEB_PATH" ]; then
-          echo "✅ Found deb package: $DEB_PATH"
-          cp "$DEB_PATH" ./output/1212.deb
-        else
-          echo "⚠️ No deb package found, creating manual package..."
           
-          # 手动创建deb包
-          if [ -d "BylibKjc/Package" ] && [ -f "./output/1212.dylib" ]; then
-            mkdir -p BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
-            cp ./output/1212.dylib BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
+          # 创建deb包
+          dpkg-deb -Zgzip -b BylibKjc/Package ./output/1212.deb
+          
+          if [ -f "./output/1212.deb" ]; then
+            echo "✅ Deb package created successfully"
+            ls -la ./output/1212.deb
             
-            # 创建deb包
-            dpkg-deb -Zgzip -b BylibKjc/Package ./output/1212.deb
-            echo "✅ Manual deb package created"
+            # 显示deb包信息
+            dpkg-deb -I ./output/1212.deb || echo "deb info unavailable"
+          else
+            echo "❌ Failed to create deb package"
           fi
+        else
+          echo "❌ Cannot create deb package: missing dylib or package structure"
         fi
-        
-        # 显示最终结果
-        echo "=== Final Output ==="
+    
+    - name: Verify Build Results
+      run: |
+        echo "=== Final Build Results ==="
         ls -la ./output/
         
-        # 验证文件
+        echo "=== Dylib Verification ==="
         if [ -f "./output/1212.dylib" ]; then
-          echo "✅ dylib file ready"
-          file ./output/1212.dylib
+          echo "✅ 1212.dylib: $(file ./output/1212.dylib)"
+          echo "Size: $(ls -lh ./output/1212.dylib | awk '{print $5}')"
+          
+          # 尝试获取更多信息
+          otool -L ./output/1212.dylib 2>/dev/null || echo "otool not available"
+        else
+          echo "❌ 1212.dylib not found"
         fi
         
+        echo "=== Deb Package Verification ==="
         if [ -f "./output/1212.deb" ]; then
-          echo "✅ deb package ready"
-          dpkg-deb -I ./output/1212.deb || echo "deb info unavailable"
+          echo "✅ 1212.deb: $(file ./output/1212.deb)"
+          echo "Size: $(ls -lh ./output/1212.deb | awk '{print $5}')"
+        else
+          echo "❌ 1212.deb not found"
         fi
     
     - name: Upload Artifacts
@@ -201,33 +163,46 @@ jobs:
           🚀 自动构建的iOS Dylib文件
           
           ## 📱 文件说明
-          - `1212.dylib`: 编译好的动态库文件 (支持arm64)
+          - `1212.dylib`: 编译好的动态库文件 (arm64架构)
           - `1212.deb`: Cydia安装包
           
           ## ✨ 功能特性
-          - URL拦截和重定向
+          - URL拦截和重定向 (wyURLProtocol)
           - 支持iOS 12.0+
-          - 使用Theos构建系统
+          - 使用Clang直接编译
+          - 无需MonkeyDev/Theos环境
           
           ## 📥 安装方法
           
           ### 方法一：安装deb包 (推荐)
-          1. 下载 `1212.deb` 文件
-          2. 使用Filza或SSH传输到设备
-          3. 运行 `dpkg -i 1212.deb` 安装
-          4. 重启SpringBoard: `killall -9 SpringBoard`
+          ```bash
+          # 下载并安装
+          dpkg -i 1212.deb
+          
+          # 重启SpringBoard
+          killall -9 SpringBoard
+          ```
           
           ### 方法二：手动安装dylib
-          1. 下载 `1212.dylib` 文件
-          2. 复制到 `/Library/MobileSubstrate/DynamicLibraries/`
-          3. 重启SpringBoard
+          ```bash
+          # 复制到目标目录
+          cp 1212.dylib /Library/MobileSubstrate/DynamicLibraries/
+          
+          # 重启SpringBoard
+          killall -9 SpringBoard
+          ```
+          
+          ## 🔧 技术细节
+          - **架构**: arm64
+          - **最低iOS版本**: 12.0
+          - **依赖框架**: Foundation, UIKit, AVFoundation
+          - **编译器**: Clang (Xcode)
+          - **签名工具**: ldid
           
           ## ⚙️ 构建信息
           - 构建时间: ${{ github.event.head_commit.timestamp }}
           - 提交SHA: ${{ github.sha }}
-          - iOS部署目标: 12.0+
-          - 架构支持: arm64
-          - 构建工具: Theos + Clang
+          - 构建编号: #${{ github.run_number }}
         files: |
           ./output/1212.dylib
           ./output/1212.deb
