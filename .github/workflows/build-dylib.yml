@@ -1,0 +1,119 @@
+name: Build iOS Dylib
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
+    
+    - name: Install Theos Dependencies
+      run: |
+        # 安装必要的依赖
+        brew install ldid
+        
+        # 下载并安装Theos
+        sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
+        
+        # 设置环境变量
+        echo 'export THEOS=/opt/theos' >> ~/.zshrc
+        echo 'export PATH=$THEOS/bin:$PATH' >> ~/.zshrc
+        source ~/.zshrc
+        
+        # 下载iOS SDK
+        curl -LO https://github.com/theos/sdks/archive/master.zip
+        unzip master.zip
+        sudo mv sdks-master/* /opt/theos/sdks/
+        
+    - name: Setup MonkeyDev
+      run: |
+        # 克隆MonkeyDev
+        git clone https://github.com/AloneMonkey/MonkeyDev.git
+        cd MonkeyDev
+        sudo ./md-install
+        
+    - name: Build Project
+      run: |
+        # 清理项目
+        xcodebuild clean -project 654323.xcodeproj -scheme 1212
+        
+        # 编译项目
+        xcodebuild -project 654323.xcodeproj \
+                   -scheme 1212 \
+                   -configuration Release \
+                   -derivedDataPath ./build \
+                   -arch arm64 \
+                   -arch arm64e \
+                   IPHONEOS_DEPLOYMENT_TARGET=12.0 \
+                   CODE_SIGNING_ALLOWED=NO \
+                   build
+    
+    - name: Package Dylib
+      run: |
+        # 查找生成的dylib文件
+        find ./build -name "*.dylib" -type f
+        
+        # 创建输出目录
+        mkdir -p ./output
+        
+        # 复制dylib文件
+        cp ./build/Build/Products/Release-iphoneos/1212.dylib ./output/
+        
+        # 签名dylib文件
+        ldid -S ./output/1212.dylib
+        
+        # 创建deb包
+        if [ -d "BylibKjc/Package" ]; then
+          cp ./output/1212.dylib BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
+          dpkg-deb -Zgzip -b BylibKjc/Package ./output/BylibKjc.deb
+        fi
+        
+        # 显示文件信息
+        ls -la ./output/
+        file ./output/1212.dylib
+    
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: iOS-Dylib-Build
+        path: |
+          ./output/1212.dylib
+          ./output/BylibKjc.deb
+        retention-days: 30
+    
+    - name: Create Release
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ github.run_number }}
+        name: Release v${{ github.run_number }}
+        body: |
+          自动构建的iOS Dylib文件
+          
+          ## 文件说明
+          - `1212.dylib`: 编译好的动态库文件
+          - `BylibKjc.deb`: Cydia安装包
+          
+          ## 安装方法
+          1. 将dylib文件复制到 `/Library/MobileSubstrate/DynamicLibraries/`
+          2. 或者直接安装deb包到越狱设备
+          
+          构建时间: ${{ github.event.head_commit.timestamp }}
+        files: |
+          ./output/1212.dylib
+          ./output/BylibKjc.deb
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
