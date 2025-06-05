@@ -18,75 +18,107 @@ jobs:
       with:
         xcode-version: latest-stable
     
-    - name: Install Theos Dependencies
+    - name: Install Dependencies
       run: |
-        # 安装必要的依赖
+        # 安装签名工具
         brew install ldid
         
-        # 下载并安装Theos
-        sudo git clone --recursive https://github.com/theos/theos.git /opt/theos
+        # 安装dpkg-deb用于创建deb包
+        brew install dpkg
         
-        # 设置环境变量
-        echo 'export THEOS=/opt/theos' >> ~/.zshrc
-        echo 'export PATH=$THEOS/bin:$PATH' >> ~/.zshrc
-        source ~/.zshrc
+    - name: Setup Build Environment
+      run: |
+        # 创建必要的目录结构
+        sudo mkdir -p /opt/theos
+        sudo chown -R $(whoami) /opt/theos
         
-        # 下载iOS SDK
+        # 下载iOS SDK (简化版本)
         curl -LO https://github.com/theos/sdks/archive/master.zip
         unzip master.zip
-        sudo mv sdks-master/* /opt/theos/sdks/
+        mkdir -p /opt/theos/sdks
+        cp -r sdks-master/* /opt/theos/sdks/
         
-    - name: Setup MonkeyDev
-      run: |
-        # 克隆MonkeyDev
-        git clone https://github.com/AloneMonkey/MonkeyDev.git
-        cd MonkeyDev
-        sudo ./md-install
+        # 设置环境变量
+        echo "THEOS=/opt/theos" >> $GITHUB_ENV
+        echo "/opt/theos/bin" >> $GITHUB_PATH
         
     - name: Build Project
       run: |
-        # 清理项目
-        xcodebuild clean -project 654323.xcodeproj -scheme 1212
+        # 显示项目信息
+        ls -la
+        xcodebuild -list -project 654323.xcodeproj
         
-        # 编译项目
+        # 清理项目
+        xcodebuild clean -project 654323.xcodeproj -scheme 1212 || true
+        
+        # 编译项目 - 使用更简单的配置
         xcodebuild -project 654323.xcodeproj \
                    -scheme 1212 \
                    -configuration Release \
                    -derivedDataPath ./build \
-                   -arch arm64 \
-                   -arch arm64e \
+                   -destination "generic/platform=iOS" \
                    IPHONEOS_DEPLOYMENT_TARGET=12.0 \
                    CODE_SIGNING_ALLOWED=NO \
+                   CODE_SIGN_IDENTITY="" \
+                   PROVISIONING_PROFILE="" \
                    build
     
     - name: Package Dylib
       run: |
         # 查找生成的dylib文件
-        find ./build -name "*.dylib" -type f
+        echo "Looking for dylib files..."
+        find ./build -name "*.dylib" -type f || echo "No dylib files found in build directory"
+        
+        # 显示build目录结构
+        echo "Build directory structure:"
+        find ./build -type f -name "*" | head -20
         
         # 创建输出目录
         mkdir -p ./output
         
-        # 复制dylib文件
-        cp ./build/Build/Products/Release-iphoneos/1212.dylib ./output/
-        
-        # 签名dylib文件
-        ldid -S ./output/1212.dylib
-        
-        # 创建deb包
-        if [ -d "BylibKjc/Package" ]; then
-          cp ./output/1212.dylib BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
-          dpkg-deb -Zgzip -b BylibKjc/Package ./output/BylibKjc.deb
+        # 尝试多个可能的路径来找到dylib文件
+        DYLIB_PATH=""
+        if [ -f "./build/Build/Products/Release-iphoneos/1212.dylib" ]; then
+          DYLIB_PATH="./build/Build/Products/Release-iphoneos/1212.dylib"
+        elif [ -f "./build/Build/Products/Release/1212.dylib" ]; then
+          DYLIB_PATH="./build/Build/Products/Release/1212.dylib"
+        else
+          # 查找任何dylib文件
+          DYLIB_PATH=$(find ./build -name "*.dylib" -type f | head -1)
         fi
         
-        # 显示文件信息
-        ls -la ./output/
-        file ./output/1212.dylib
+        if [ -n "$DYLIB_PATH" ] && [ -f "$DYLIB_PATH" ]; then
+          echo "Found dylib at: $DYLIB_PATH"
+          cp "$DYLIB_PATH" ./output/1212.dylib
+          
+          # 签名dylib文件
+          ldid -S ./output/1212.dylib
+          
+          # 创建deb包
+          if [ -d "BylibKjc/Package" ]; then
+            # 确保目标目录存在
+            mkdir -p BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
+            cp ./output/1212.dylib BylibKjc/Package/Library/MobileSubstrate/DynamicLibraries/
+            
+            # 创建deb包
+            dpkg-deb -Zgzip -b BylibKjc/Package ./output/BylibKjc.deb
+          fi
+          
+          # 显示文件信息
+          echo "Output files:"
+          ls -la ./output/
+          file ./output/1212.dylib
+        else
+          echo "Error: Could not find dylib file"
+          echo "Available files in build directory:"
+          find ./build -type f | head -50
+          exit 1
+        fi
     
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: iOS-Dylib-Build
+        name: iOS-Dylib-Build-${{ github.run_number }}
         path: |
           ./output/1212.dylib
           ./output/BylibKjc.deb
@@ -99,17 +131,29 @@ jobs:
         tag_name: v${{ github.run_number }}
         name: Release v${{ github.run_number }}
         body: |
-          自动构建的iOS Dylib文件
+          🚀 自动构建的iOS Dylib文件
           
-          ## 文件说明
-          - `1212.dylib`: 编译好的动态库文件
+          ## 📱 文件说明
+          - `1212.dylib`: 编译好的动态库文件 (支持arm64/arm64e)
           - `BylibKjc.deb`: Cydia安装包
           
-          ## 安装方法
-          1. 将dylib文件复制到 `/Library/MobileSubstrate/DynamicLibraries/`
-          2. 或者直接安装deb包到越狱设备
+          ## 📥 安装方法
           
-          构建时间: ${{ github.event.head_commit.timestamp }}
+          ### 方法一：安装deb包
+          1. 下载 `BylibKjc.deb` 文件
+          2. 使用Filza或SSH传输到设备
+          3. 运行 `dpkg -i BylibKjc.deb` 安装
+          
+          ### 方法二：手动安装dylib
+          1. 下载 `1212.dylib` 文件
+          2. 复制到 `/Library/MobileSubstrate/DynamicLibraries/`
+          3. 重启SpringBoard
+          
+          ## ⚙️ 构建信息
+          - 构建时间: ${{ github.event.head_commit.timestamp }}
+          - 提交SHA: ${{ github.sha }}
+          - iOS部署目标: 12.0+
+          - 架构支持: arm64, arm64e
         files: |
           ./output/1212.dylib
           ./output/BylibKjc.deb
