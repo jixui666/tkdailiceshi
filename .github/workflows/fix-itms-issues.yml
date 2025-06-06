@@ -123,13 +123,13 @@ jobs:
         
         if [ -f "$INFO_PLIST" ]; then
           # 使用Python处理plist文件
-          python3 -c "
+          python3 << 'EOF' | tee -a fix_process.log
 import plistlib
 import sys
 
 try:
     # 读取plist文件
-    with open('$INFO_PLIST', 'rb') as f:
+    with open('Payload/TikTok.app/Info.plist', 'rb') as f:
         plist_data = plistlib.load(f)
     
     # 获取当前版本
@@ -140,15 +140,15 @@ try:
     plist_data['MinimumOSVersion'] = '14.0'
     
     # 写回文件
-    with open('$INFO_PLIST', 'wb') as f:
+    with open('Payload/TikTok.app/Info.plist', 'wb') as f:
         plistlib.dump(plist_data, f)
     
-    print(f'✅ 已更新MinimumOSVersion为: 14.0')
+    print('✅ 已更新MinimumOSVersion为: 14.0')
     
 except Exception as e:
     print(f'❌ 处理Info.plist失败: {e}')
     sys.exit(1)
-" | tee -a fix_process.log
+EOF
         else
           echo "❌ 未找到Info.plist文件" | tee -a fix_process.log
         fi
@@ -224,17 +224,18 @@ except Exception as e:
         # 检查Info.plist
         INFO_PLIST="Payload/TikTok.app/Info.plist"
         if [ -f "$INFO_PLIST" ]; then
-          # 使用Python读取plist
-          python3 -c "
+          echo "✅ Info.plist修复状态:" >> fix_report.txt
+          # 使用Python读取版本信息
+          python3 << 'EOF' >> fix_report.txt
 import plistlib
 try:
-    with open('$INFO_PLIST', 'rb') as f:
+    with open('Payload/TikTok.app/Info.plist', 'rb') as f:
         plist_data = plistlib.load(f)
     version = plist_data.get('MinimumOSVersion', '未设置')
-    print(f'✅ MinimumOSVersion: {version}')
+    print(f'   MinimumOSVersion: {version}')
 except Exception as e:
-    print(f'❌ 读取Info.plist失败: {e}')
-" | tee -a fix_process.log
+    print(f'   读取失败: {e}')
+EOF
         fi
         
         # 检查主要二进制文件
@@ -274,16 +275,16 @@ except Exception as e:
         if [ -f "$INFO_PLIST" ]; then
           echo "✅ Info.plist修复状态:" >> fix_report.txt
           # 使用Python读取版本信息
-          python3 -c "
+          python3 << 'EOF' >> fix_report.txt
 import plistlib
 try:
-    with open('$INFO_PLIST', 'rb') as f:
+    with open('Payload/TikTok.app/Info.plist', 'rb') as f:
         plist_data = plistlib.load(f)
     version = plist_data.get('MinimumOSVersion', '未设置')
     print(f'   MinimumOSVersion: {version}')
 except Exception as e:
     print(f'   读取失败: {e}')
-" >> fix_report.txt
+EOF
         fi
         
         echo "" >> fix_report.txt
