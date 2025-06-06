@@ -118,22 +118,39 @@ jobs:
 
     - name: Fix Info.plist (ITMS-90208)
       run: |
-        echo "修复Info.plist中的最小OS版本..."
+        echo "修复Info.plist中的最小OS版本..." | tee -a fix_process.log
         INFO_PLIST="Payload/TikTok.app/Info.plist"
         
         if [ -f "$INFO_PLIST" ]; then
-          # 读取当前版本
-          CURRENT_VERSION=$(PlistBuddy -c "Print :MinimumOSVersion" "$INFO_PLIST" 2>/dev/null || echo "未设置")
-          echo "当前MinimumOSVersion: $CURRENT_VERSION"
-          
-          # 设置为14.0
-          PlistBuddy -c "Set :MinimumOSVersion 14.0" "$INFO_PLIST" 2>/dev/null || \
-          PlistBuddy -c "Add :MinimumOSVersion string 14.0" "$INFO_PLIST"
-          
-          NEW_VERSION=$(PlistBuddy -c "Print :MinimumOSVersion" "$INFO_PLIST")
-          echo "✅ 已更新MinimumOSVersion为: $NEW_VERSION"
+          # 使用Python处理plist文件
+          python3 -c "
+import plistlib
+import sys
+
+try:
+    # 读取plist文件
+    with open('$INFO_PLIST', 'rb') as f:
+        plist_data = plistlib.load(f)
+    
+    # 获取当前版本
+    current_version = plist_data.get('MinimumOSVersion', '未设置')
+    print(f'当前MinimumOSVersion: {current_version}')
+    
+    # 设置为14.0
+    plist_data['MinimumOSVersion'] = '14.0'
+    
+    # 写回文件
+    with open('$INFO_PLIST', 'wb') as f:
+        plistlib.dump(plist_data, f)
+    
+    print(f'✅ 已更新MinimumOSVersion为: 14.0')
+    
+except Exception as e:
+    print(f'❌ 处理Info.plist失败: {e}')
+    sys.exit(1)
+" | tee -a fix_process.log
         else
-          echo "❌ 未找到Info.plist文件"
+          echo "❌ 未找到Info.plist文件" | tee -a fix_process.log
         fi
 
     - name: Run Python Fix Script
@@ -202,24 +219,33 @@ jobs:
 
     - name: Verify Fixes
       run: |
-        echo "验证修复结果..."
+        echo "验证修复结果..." | tee -a fix_process.log
         
         # 检查Info.plist
         INFO_PLIST="Payload/TikTok.app/Info.plist"
         if [ -f "$INFO_PLIST" ]; then
-          VERSION=$(PlistBuddy -c "Print :MinimumOSVersion" "$INFO_PLIST" 2>/dev/null || echo "未设置")
-          echo "✅ MinimumOSVersion: $VERSION"
+          # 使用Python读取plist
+          python3 -c "
+import plistlib
+try:
+    with open('$INFO_PLIST', 'rb') as f:
+        plist_data = plistlib.load(f)
+    version = plist_data.get('MinimumOSVersion', '未设置')
+    print(f'✅ MinimumOSVersion: {version}')
+except Exception as e:
+    print(f'❌ 读取Info.plist失败: {e}')
+" | tee -a fix_process.log
         fi
         
         # 检查主要二进制文件
         MAIN_BINARY="Payload/TikTok.app/TikTok"
         if [ -f "$MAIN_BINARY" ]; then
-          echo "✅ 主二进制文件存在"
-          file "$MAIN_BINARY"
-          otool -l "$MAIN_BINARY" | grep -A 5 LC_ENCRYPTION_INFO || echo "无加密信息"
+          echo "✅ 主二进制文件存在" | tee -a fix_process.log
+          file "$MAIN_BINARY" | tee -a fix_process.log
+          otool -l "$MAIN_BINARY" | grep -A 5 LC_ENCRYPTION_INFO | tee -a fix_process.log || echo "无加密信息" | tee -a fix_process.log
         fi
         
-        echo "✅ 验证完成"
+        echo "✅ 验证完成" | tee -a fix_process.log
 
     - name: Create Fixed IPA
       run: |
@@ -247,8 +273,17 @@ jobs:
         INFO_PLIST="Payload/TikTok.app/Info.plist"
         if [ -f "$INFO_PLIST" ]; then
           echo "✅ Info.plist修复状态:" >> fix_report.txt
-          VERSION=$(PlistBuddy -c "Print :MinimumOSVersion" "$INFO_PLIST" 2>/dev/null || echo "未设置")
-          echo "   MinimumOSVersion: $VERSION" >> fix_report.txt
+          # 使用Python读取版本信息
+          python3 -c "
+import plistlib
+try:
+    with open('$INFO_PLIST', 'rb') as f:
+        plist_data = plistlib.load(f)
+    version = plist_data.get('MinimumOSVersion', '未设置')
+    print(f'   MinimumOSVersion: {version}')
+except Exception as e:
+    print(f'   读取失败: {e}')
+" >> fix_report.txt
         fi
         
         echo "" >> fix_report.txt
