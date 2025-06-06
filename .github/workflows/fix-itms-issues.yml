@@ -22,6 +22,9 @@ on:
         required: false
         default: true
         type: boolean
+  push:
+    paths:
+      - '.github/workflows/fix-itms-issues.yml'
 
 permissions:
   contents: read
