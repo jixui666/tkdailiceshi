@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 jobs:
@@ -144,4 +144,32 @@ jobs:
       with:
         name: Fix-Report
         path: fix_report.txt
-        retention-days: 30 
+        retention-days: 30
+
+    - name: Create Release with Fixed IPA
+      if: success()
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: tiktok-fixed-${{ github.run_number }}
+        name: TikTok Fixed IPA - Run ${{ github.run_number }}
+        body: |
+          🎯 TikTok ITMS问题修复完成
+          
+          **修复的问题:**
+          - ITMS-90208: 最小OS版本已更新为14.0
+          - ITMS-90125: 已处理二进制加密信息
+          
+          **文件说明:**
+          - `TikTok-Fixed.ipa`: 修复后的IPA文件
+          - `fix_report.txt`: 详细修复报告
+          
+          **使用方法:**
+          1. 下载TikTok-Fixed.ipa文件
+          2. 使用该文件重新提交到App Store
+        files: |
+          TikTok-Fixed.ipa
+          fix_report.txt
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
