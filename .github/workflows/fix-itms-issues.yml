@@ -180,50 +180,9 @@ jobs:
             binary_path="$plugin/$plugin_name"
             if [ -f "$binary_path" ]; then
               echo "检查 $plugin_name..."
-              # 使用Python重置cryptid
-              python3 -c "
-import struct
-import sys
-import os
-
-def reset_cryptid(filepath):
-    try:
-        with open(filepath, 'r+b') as f:
-            data = f.read()
-            pos = 0
-            modified = False
-            
-            while pos < len(data) - 32:
-                if data[pos:pos+4] in [b'\xfe\xed\xfa\xce', b'\xce\xfa\xed\xfe', 
-                                     b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe']:
-                    f.seek(pos + 16)
-                    ncmds = struct.unpack('<I', f.read(4))[0]
-                    f.seek(pos + 32)
-                    
-                    for _ in range(ncmds):
-                        cmd_pos = f.tell()
-                        cmd = struct.unpack('<I', f.read(4))[0]
-                        cmdsize = struct.unpack('<I', f.read(4))[0]
-                        
-                        if cmd in [0x21, 0x2C]:  # LC_ENCRYPTION_INFO/64
-                            f.seek(cmd_pos + 16)
-                            f.write(struct.pack('<I', 0))
-                            print(f'✅ 重置 {os.path.basename(filepath)} 的cryptid')
-                            modified = True
-                        
-                        f.seek(cmd_pos + cmdsize)
-                    break
-                pos += 1
-            
-            return modified
-    except Exception as e:
-        print(f'❌ 处理 {filepath} 失败: {e}')
-        return False
-
-if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        reset_cryptid(sys.argv[1])
-" "$binary_path"
+              # 使用optool移除加密信息
+              optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..."
+              optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..."
             fi
           done
         fi
@@ -232,49 +191,9 @@ if __name__ == '__main__':
         MAIN_BINARY="Payload/TikTok.app/TikTok"
         if [ -f "$MAIN_BINARY" ]; then
           echo "处理主应用加密问题..."
-          python3 -c "
-import struct
-import sys
-import os
-
-def reset_cryptid(filepath):
-    try:
-        with open(filepath, 'r+b') as f:
-            data = f.read()
-            pos = 0
-            modified = False
-            
-            while pos < len(data) - 32:
-                if data[pos:pos+4] in [b'\xfe\xed\xfa\xce', b'\xce\xfa\xed\xfe', 
-                                     b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe']:
-                    f.seek(pos + 16)
-                    ncmds = struct.unpack('<I', f.read(4))[0]
-                    f.seek(pos + 32)
-                    
-                    for _ in range(ncmds):
-                        cmd_pos = f.tell()
-                        cmd = struct.unpack('<I', f.read(4))[0]
-                        cmdsize = struct.unpack('<I', f.read(4))[0]
-                        
-                        if cmd in [0x21, 0x2C]:  # LC_ENCRYPTION_INFO/64
-                            f.seek(cmd_pos + 16)
-                            f.write(struct.pack('<I', 0))
-                            print(f'✅ 重置 {os.path.basename(filepath)} 的cryptid')
-                            modified = True
-                        
-                        f.seek(cmd_pos + cmdsize)
-                    break
-                pos += 1
-            
-            return modified
-    except Exception as e:
-        print(f'❌ 处理 {filepath} 失败: {e}')
-        return False
-
-if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        reset_cryptid(sys.argv[1])
-" "$MAIN_BINARY"
+          # 使用optool移除加密信息
+          optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..."
+          optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..."
         fi
 
     - name: Verify Fixes
