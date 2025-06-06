@@ -112,12 +112,75 @@ jobs:
     - name: Create Fixed IPA
       run: |
         echo "创建修复后的IPA文件..."
+        
+        # 验证Payload目录结构
+        echo "📂 验证目录结构:"
+        if [ -d "Payload/TikTok.app/Frameworks" ]; then
+          echo "✅ Frameworks目录存在"
+          echo "📊 Frameworks内容统计:"
+          find "Payload/TikTok.app/Frameworks" -type f | wc -l | xargs echo "文件数量:"
+          find "Payload/TikTok.app/Frameworks" -type d | wc -l | xargs echo "目录数量:"
+          
+          # 列出主要的framework
+          echo "🔍 主要Frameworks:"
+          ls "Payload/TikTok.app/Frameworks" | grep "\.framework" | head -10
+        else
+          echo "❌ Frameworks目录不存在!"
+          exit 1
+        fi
+        
+        # 检查关键文件
+        echo "🔍 检查关键文件:"
+        if [ -f "Payload/TikTok.app/TikTok" ]; then
+          echo "✅ 主应用二进制存在"
+          ls -lh "Payload/TikTok.app/TikTok"
+        else
+          echo "❌ 主应用二进制不存在!"
+        fi
+        
+        if [ -f "Payload/TikTok.app/Info.plist" ]; then
+          echo "✅ Info.plist存在"
+        else
+          echo "❌ Info.plist不存在!"
+        fi
+        
+        # 创建IPA - 使用更详细的zip选项
+        echo "📦 开始创建IPA..."
         cd Payload
-        zip -r ../TikTok-Fixed.ipa .
+        
+        # 显示打包前的详细信息
+        echo "📊 打包前统计:"
+        find . -type f | wc -l | xargs echo "总文件数:"
+        find . -type d | wc -l | xargs echo "总目录数:"
+        du -sh TikTok.app | cut -f1 | xargs echo "TikTok.app大小:"
+        
+        # 创建zip文件，保持符号链接和权限
+        zip -r -y -X ../TikTok-Fixed.ipa . -x "*.DS_Store" -x "__MACOSX/*"
+        
         cd ..
+        
+        # 验证生成的IPA
         if [ -f "TikTok-Fixed.ipa" ]; then
-          ls -la TikTok-Fixed.ipa
-          echo "✅ IPA创建完成"
+          echo "✅ IPA创建成功"
+          ls -lh TikTok-Fixed.ipa
+          
+          # 验证IPA内容
+          echo "🔍 验证IPA内容:"
+          unzip -l TikTok-Fixed.ipa | grep "Frameworks/" | head -5
+          
+          # 检查IPA是否包含关键文件
+          if unzip -l TikTok-Fixed.ipa | grep -q "TikTok.app/Frameworks/"; then
+            echo "✅ IPA包含Frameworks目录"
+          else
+            echo "❌ IPA缺少Frameworks目录!"
+          fi
+          
+          if unzip -l TikTok-Fixed.ipa | grep -q "TikTok.app/TikTok"; then
+            echo "✅ IPA包含主应用二进制"
+          else
+            echo "❌ IPA缺少主应用二进制!"
+          fi
+          
         else
           echo "❌ IPA创建失败"
           exit 1
@@ -125,11 +188,53 @@ jobs:
 
     - name: Generate Report
       run: |
-        echo "TikTok ITMS错误修复报告" > fix_report.txt
+        echo "🎯 TikTok ITMS错误修复报告" > fix_report.txt
+        echo "===========================================" >> fix_report.txt
         echo "修复时间: $(date)" >> fix_report.txt
-        echo "✅ 已修复问题:" >> fix_report.txt
+        echo "" >> fix_report.txt
+        
+        echo "✅ 已修复的ITMS问题:" >> fix_report.txt
         echo "- ITMS-90208: 最小OS版本已更新为14.0" >> fix_report.txt
         echo "- ITMS-90125: 已处理二进制加密信息" >> fix_report.txt
+        echo "" >> fix_report.txt
+        
+        echo "📊 IPA文件验证:" >> fix_report.txt
+        if [ -f "TikTok-Fixed.ipa" ]; then
+          echo "- IPA文件大小: $(ls -lh TikTok-Fixed.ipa | awk '{print $5}')" >> fix_report.txt
+          
+          # 检查IPA内容
+          if unzip -l TikTok-Fixed.ipa | grep -q "TikTok.app/Frameworks/"; then
+            echo "- Frameworks目录: ✅ 包含" >> fix_report.txt
+            framework_count=$(unzip -l TikTok-Fixed.ipa | grep "TikTok.app/Frameworks.*\.framework/" | wc -l)
+            echo "- Framework数量: $framework_count 个" >> fix_report.txt
+          else
+            echo "- Frameworks目录: ❌ 缺失" >> fix_report.txt
+          fi
+          
+          if unzip -l TikTok-Fixed.ipa | grep -q "TikTok.app/TikTok$"; then
+            echo "- 主应用二进制: ✅ 包含" >> fix_report.txt
+          else
+            echo "- 主应用二进制: ❌ 缺失" >> fix_report.txt
+          fi
+          
+          if unzip -l TikTok-Fixed.ipa | grep -q "TikTok.app/Info.plist"; then
+            echo "- Info.plist: ✅ 包含" >> fix_report.txt
+          else
+            echo "- Info.plist: ❌ 缺失" >> fix_report.txt
+          fi
+          
+          total_files=$(unzip -l TikTok-Fixed.ipa | grep -E "^-" | wc -l)
+          echo "- 总文件数量: $total_files 个" >> fix_report.txt
+        else
+          echo "- IPA状态: ❌ 文件不存在" >> fix_report.txt
+        fi
+        
+        echo "" >> fix_report.txt
+        echo "📱 使用说明:" >> fix_report.txt
+        echo "1. 下载 TikTok-Fixed.ipa 文件" >> fix_report.txt
+        echo "2. 使用该文件重新提交到App Store" >> fix_report.txt
+        echo "3. 如果仍有其他ITMS错误，请检查具体错误信息" >> fix_report.txt
+        
         cat fix_report.txt
 
     - name: Upload IPA
