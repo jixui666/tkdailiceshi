@@ -1,0 +1,35 @@
+{
+    "effect": {
+        "Link": [
+            {"type": "TouchGes"},
+            {
+                "path": "AmazingFeature",
+                "type": "AmazingFeature",
+                "zorder": 1073741823
+            }
+        ],
+        "dst_tex_resolution":
+        {
+            "priority":5000,
+            "scale_x":2.0,
+            "scale_y":1.0,
+            "enable":true
+        },
+        "algo_tex_preprocess_config":
+              [
+                  {
+                      "priority":5000,
+                      "tex_idx":1,
+                      "tex_ref_idx":0,
+                      "enable":true,
+                      "mode":4
+                  }
+              ]
+    },
+    "requirement": {
+        "faceDetect": false,
+        "matting": false
+    },
+    "name": "surface_layout_leftright_20230627s",
+    "version": "14.6.0"
+}

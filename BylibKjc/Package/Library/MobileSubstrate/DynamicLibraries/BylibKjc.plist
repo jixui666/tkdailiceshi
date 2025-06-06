@@ -6,7 +6,7 @@
 	<dict>
 		<key>Bundles</key>
 		<array>
-			<string>com.target.bundleid</string>
+			<string>com.zhiliaoapp.musically</string>
 		</array>
 	</dict>
 </dict>

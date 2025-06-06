@@ -1,0 +1,16 @@
+{
+  "config": [
+    {
+      "id": "should_run",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "2",
+          "result": "run"
+        }
+      ],
+      "fallback_result": "not_run"
+    }
+  ]
+}

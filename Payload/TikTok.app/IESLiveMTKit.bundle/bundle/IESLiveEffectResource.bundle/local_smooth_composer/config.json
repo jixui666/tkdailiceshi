@@ -1,0 +1,49 @@
+{
+	"ae_tool": "AmazingEditor",
+	"bALG_BACH_CONFIG": true,
+	"effect": {
+		"Link": [
+			{
+				"exclusiveScene": [
+                    {
+                        "sceneKey": "FaceBeauty/Smooth",
+                        "tagName": [
+                            "AmazingFeature/"
+                        ],
+                        "composerKey": [
+                            "Smooth_ALL"
+                        ],
+                        "priority": 1000
+                    }
+                ],
+				"extra": {
+					"composer_param": [
+						{
+							"name": "SmoothALLv9",
+							"key": "Smooth_ALL",
+							"default_value": 0.6,
+							"min_value": 0.0,
+							"max_value": 1.0,
+							"allow_negative": false
+						}
+					]
+				},
+				"path": "AmazingFeature/",
+				"type": "AmazingFeature",
+				"zorder": 1000
+			}
+		],
+		"model_names": {
+			"alg_model": [
+				"tt_face"
+			]
+		},
+		"coexistScene": {
+            "allowList": [
+                "*"
+            ]
+        }
+	},
+	"name": "Editor_Sticker_Config_TAG_SmoothV9_TTLiveBuiltIn",
+	"version": "11.6.0"
+}

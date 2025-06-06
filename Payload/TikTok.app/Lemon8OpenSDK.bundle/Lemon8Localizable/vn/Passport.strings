@@ -1,0 +1,12 @@
+//link_tiktok_toast_failed_5
+"Couldn't link" = "Đã dừng liên kết";
+//link_tiktok_toast_failed_2
+"Couldn't link. You already linked Lemon8 to a TikTok account." = "Không thể liên kết. Bạn đã liên kết Lemon8 với một tài khoản TikTok rồi.";
+//link_tiktok_toast_failed_1
+"Couldn't link. You already linked TikTok to a Lemon8 account." = "Không thể liên kết. Bạn đã liên kết TikTok với một tài khoản Lemon8 rồi.";
+//link_tiktok_toast_failed_5
+"Linking stopped" = "Đã dừng liên kết";
+//link_tiktok_toast_failed_6
+"Network error. Try again." = "Lỗi mạng. Vui lòng thử lại.";
+//link_tiktok_toast_success
+"Your Lemon8 account was linked" = "Tài khoản Lemon8 của bạn đã được liên kết";

@@ -1,0 +1,33 @@
+{
+    "bundle":
+    [
+        "en.lproj/InfoPlist.strings",
+        "AAWELaunchTimeTrackerTikTok.bundle/Info.plist",
+        "Languages/info.json",
+        "TTNetVersion.plist",
+        "Heimdallr.plist",
+        "TikTokAppConfigurations.bundle/Info.plist",
+        "TikTokAppConfigurations.bundle/alisg_tnc_config.json",
+        "IESLiveMTKit.bundle/Info.plist",
+        "IESLiveMTKit.bundle/live_scope_services.plist",
+        "IESLiveMTKit.bundle/Config.plist",
+        "IESLiveMTKit.bundle/protobuf_replace_phase1.plist",
+        "AWEUIColor.bundle/Info.plist",
+        "AWEUIColor.bundle/awe_ecom_color.json",
+        "AWEUIColor.bundle/awe_color.json",
+        "TikTok-Text-Dark-Medium.otf",
+        "TikTok-Display-Bold.otf",
+        "TikTok-Display-Medium.otf",
+        "TikTok-Display-Regular.otf",
+        "TikTok-Text-Bold.otf",
+        "TikTok-Text-Medium.otf",
+        "TikTok-Text-Regular.otf",
+        "IESLiveMTKit.bundle/live_scope_services.plist",
+        "IESLiveMTKit.bundle/file/color/ies_lightdark_color.json",
+        "PIAWorkerBundle.bundle/Info.plist",
+        "PIAWorkerBundle.bundle/polyfill.js",
+        "TikTokIcon.bundle/Info.plist",
+        "IESLiveMTKit.bundle/file/i18n/en.lproj/Localizable.stringsdict",
+        "IESLiveMTKit.bundle/file/i18n/en.lproj/Localizable.strings"
+    ]
+}

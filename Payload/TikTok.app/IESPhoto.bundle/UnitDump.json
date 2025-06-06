@@ -1,0 +1,6 @@
+{
+    "dumpType":"audio",
+    "dumpPath":"/audiodump/",
+    "dumpEditorUnitName":["AfterEffect","BeforeEffect","AudioCompose","AudioOutputBin","AudioEncode","AudioSLESPlay","BeforeLoudnessBalance","AfterLoudnessBalance","BeforeRenderAudioEffect","AfterRenderAudioEffect","DequeneAudioBuffer","EnqueneAudioBuffer"],
+    "dumpRecUnitName":["TEAudioResampleUnit","TEEffectProcessUnit","TEAudioOrganizeUnit","TEAudioTrickSink","TEMicInputUnit","TEAudioSpeed2Unit","TEAudioRenderUnit","TEAudioVolumeUnit","TETrickSource","TEAudioALDetectUnit","TEAudioAECancellationUnit","TEAudioAGEffectUnit"]
+}

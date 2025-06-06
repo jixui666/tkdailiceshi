@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "mode": 2,
+  "name": "AlgorithmGraph_XycsbOBc",
+  "nodes": [
+    {
+      "name": "blit_0",
+      "type": "blit",
+      "config": {
+        "size": {
+          "width": 360,
+          "height": 640
+        },
+        "keyMaps": {
+          "intParam": {},
+          "floatParam": {},
+          "stringParam": {},
+          "pathParam": {}
+        }
+      }
+    },
+    {
+      "name": "expression_detect_0",
+      "type": "expression_detect",
+      "config": {
+        "keyMaps": {
+          "intParam": {
+            "face_attr_detect_ability": 23,
+            "face_attr_force_detect": 1
+          },
+          "floatParam": {},
+          "stringParam": {},
+          "pathParam": {}
+        }
+      }
+    },
+    {
+      "name": "face_0",
+      "type": "face",
+      "config": {
+        "keyMaps": {
+          "intParam": {
+            "face_max_num": 10,
+            "face_fast_mode": 0,
+            "face_detect_mode": 262144,
+            "face_detect_ability": 2304
+          },
+          "floatParam": {},
+          "stringParam": {},
+          "pathParam": {}
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "fromNode": "blit_0",
+      "fromIndex": 0,
+      "toNode": "expression_detect_0",
+      "toIndex": 0
+    },
+    {
+      "fromNode": "blit_0",
+      "fromIndex": 0,
+      "toNode": "face_0",
+      "toIndex": 0
+    },
+    {
+      "fromNode": "face_0",
+      "fromIndex": 0,
+      "toNode": "expression_detect_0",
+      "toIndex": 1
+    }
+  ]
+}

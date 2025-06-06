@@ -1,0 +1,17 @@
+{
+	"ae_tool" : "AmazingEditor",
+	"bALG_BACH_CONFIG" : true,
+	"effect" : 
+	{
+		"Link" : 
+		[
+			{
+				"path" : "amazingfeature/",
+				"type" : "AmazingFeature",
+				"zorder" : 10000
+			}
+		]
+	},
+	"name" : "GESticker_SkinNeedling",
+	"version" : "7.0.0"
+}

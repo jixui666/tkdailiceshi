@@ -1,0 +1,1228 @@
+{
+    "IM": [{
+        "key": "region_isle_of_man",
+        "en": "Isle of Man",
+        "code": 44
+    }],
+    "HR": [{
+        "key": "croatia",
+        "en": "Croatia",
+        "code": 385
+    }],
+    "GW": [{
+        "key": "guinea_bissau",
+        "en": "Guinea-Bissau",
+        "code": 245
+    }],
+    "IN": [{
+        "key": "india",
+        "en": "India",
+        "code": 91
+    }],
+    "KE": [{
+        "key": "kenya",
+        "en": "Kenya",
+        "code": 254
+    }],
+    "LA": [{
+        "key": "laos",
+        "en": "Laos",
+        "code": 856
+    }],
+    "IO": [{
+        "key": "british_indian_ocean_territory",
+        "en": "British Indian Ocean Territory",
+        "code": 246
+    }],
+    "HT": [{
+        "key": "haiti",
+        "en": "Haiti",
+        "code": 509
+    }],
+    "LB": [{
+        "key": "lebanon",
+        "en": "Lebanon",
+        "code": 961
+    }],
+    "GY": [{
+        "key": "guyana",
+        "en": "Guyana",
+        "code": 592
+    }],
+    "KG": [{
+        "key": "kyrgyzstan",
+        "en": "Kyrgyzstan",
+        "code": 996
+    }],
+    "HU": [{
+        "key": "hungary",
+        "en": "Hungary",
+        "code": 36
+    }],
+    "LC": [{
+        "key": "region_saint_lucia",
+        "en": "St.Lucia",
+        "code": 1758
+    }],
+    "IQ": [{
+        "key": "iraq",
+        "en": "Iraq",
+        "code": 964
+    }],
+    "KH": [{
+        "key": "cambodia",
+        "en": "Kampuchea (Cambodia )",
+        "code": 855
+    }],
+    "JM": [{
+        "key": "jamaica",
+        "en": "Jamaica",
+        "code": 1876
+    }],
+    "KI": [{
+        "key": "kiribati",
+        "en": "Kiribati",
+        "code": 686
+    }],
+    "IS": [{
+        "key": "iceland",
+        "en": "Iceland",
+        "code": 354
+    }],
+    "MA": [{
+        "key": "morocco",
+        "en": "Morocco",
+        "code": 212
+    }],
+    "JO": [{
+        "key": "jordan",
+        "en": "Jordan",
+        "code": 962
+    }],
+    "IT": [{
+        "key": "italy",
+        "en": "Italy",
+        "code": 39
+    }],
+    "JP": [{
+        "key": "japan",
+        "en": "Japan",
+        "code": 81
+    }],
+    "MC": [{
+        "key": "monaco",
+        "en": "Monaco",
+        "code": 377
+    }],
+    "KM": [{
+        "key": "comoros",
+        "en": "Comoros",
+        "code": 269
+    }],
+    "MD": [{
+        "key": "republic_of_moldova",
+        "en": "Moldova, Republic of",
+        "code": 373
+    }],
+    "LI": [{
+        "key": "liechtenstein",
+        "en": "Liechtenstein",
+        "code": 423
+    }],
+    "KN": [{
+        "key": "st_kitts_and_nevis",
+        "en": "St. Kitts & Nevis",
+        "code": 1869
+    }],
+    "ME": [{
+        "key": "montenegro",
+        "en": "Montenegro",
+        "code": 382
+    }],
+    "NA": [{
+        "key": "namibia",
+        "en": "Namibia",
+        "code": 264
+    }],
+    "MF": [{
+        "key": "st_martin_france",
+        "en": "St. Martin",
+        "code": 590
+    }],
+    "LK": [{
+        "key": "sri_lanka",
+        "en": "Sri Lanka",
+        "code": 94
+    }],
+    "MG": [{
+        "key": "madagascar",
+        "en": "Madagascar",
+        "code": 261
+    }],
+    "NC": [{
+        "key": "new_caledonia",
+        "en": "New Caledonia",
+        "code": 687
+    }],
+    "MH": [{
+        "key": "marshall_islands",
+        "en": "Marshall Islands",
+        "code": 692
+    }],
+    "KR": [{
+        "key": "south_korea",
+        "en": "Korea",
+        "code": 82
+    }],
+    "NE": [{
+        "key": "niger",
+        "en": "Niger",
+        "code": 227
+    }],
+    "NF": [{
+        "key": "norfolk_island",
+        "en": "Norfolk Island",
+        "code": 672
+    }],
+    "MK": [{
+        "key": "macedonia",
+        "en": "North Macedonia",
+        "code": 389
+    }],
+    "NG": [{
+        "key": "nigeria",
+        "en": "Nigeria",
+        "code": 234
+    }],
+    "ML": [{
+        "key": "mali",
+        "en": "Mali",
+        "code": 223
+    }],
+    "MM": [{
+        "key": "myanmar_burma",
+        "en": "Myanmar (Burma)",
+        "code": 95
+    }],
+    "LR": [{
+        "key": "liberia",
+        "en": "Liberia",
+        "code": 231
+    }],
+    "NI": [{
+        "key": "nicaragua",
+        "en": "Nicaragua",
+        "code": 505
+    }],
+    "KW": [{
+        "key": "kuwait",
+        "en": "Kuwait",
+        "code": 965
+    }],
+    "MN": [{
+        "key": "mongolia",
+        "en": "Mongolia",
+        "code": 976
+    }],
+    "LS": [{
+        "key": "lesotho",
+        "en": "Lesotho",
+        "code": 266
+    }],
+    "PA": [{
+        "key": "panama",
+        "en": "Panama",
+        "code": 507
+    }],
+    "MO": [{
+        "key": "region_macao",
+        "en": "Macao",
+        "code": 853
+    }],
+    "LT": [{
+        "key": "lithuania",
+        "en": "Lithuania",
+        "code": 370
+    }],
+    "KY": [{
+        "key": "cayman_islands",
+        "en": "Cayman Is.",
+        "code": 1345
+    }],
+    "MP": [{
+        "key": "northern_mariana_islands",
+        "en": "Northern Mariana Islands",
+        "code": 1670
+    }],
+    "LU": [{
+        "key": "luxembourg",
+        "en": "Luxembourg",
+        "code": 352
+    }],
+    "NL": [{
+        "key": "netherlands",
+        "en": "Netherlands",
+        "code": 31
+    }],
+    "KZ": [{
+        "key": "kazakhstan",
+        "en": "Kazakhstan",
+        "code": 76
+    }, {
+        "key": "kazakhstan",
+        "en": "Kazakhstan",
+        "code": 77
+    }],
+    "MQ": [{
+        "key": "martinique",
+        "en": "Martinique",
+        "code": 596
+    }],
+    "LV": [{
+        "key": "latvia",
+        "en": "Latvia",
+        "code": 371
+    }],
+    "MR": [{
+        "key": "mauritania",
+        "en": "Mauritania",
+        "code": 222
+    }],
+    "PE": [{
+        "key": "peru",
+        "en": "Peru",
+        "code": 51
+    }],
+    "MS": [{
+        "key": "montserrat",
+        "en": "Montserrat",
+        "code": 1664
+    }],
+    "QA": [{
+        "key": "qatar",
+        "en": "Qatar",
+        "code": 974
+    }],
+    "NO": [{
+        "key": "norway",
+        "en": "Norway",
+        "code": 47
+    }],
+    "PF": [{
+        "key": "french_polynesia",
+        "en": "French Polynesia",
+        "code": 689
+    }],
+    "MT": [{
+        "key": "malta",
+        "en": "Malta",
+        "code": 356
+    }],
+    "LY": [{
+        "key": "libya",
+        "en": "Libya",
+        "code": 218
+    }],
+    "NP": [{
+        "key": "nepal",
+        "en": "Nepal",
+        "code": 977
+    }],
+    "PG": [{
+        "key": "papua_new_guinea",
+        "en": "Papua New Cuinea",
+        "code": 675
+    }],
+    "MU": [{
+        "key": "mauritius",
+        "en": "Mauritius",
+        "code": 230
+    }],
+    "PH": [{
+        "key": "philippines",
+        "en": "Philippines",
+        "code": 63
+    }],
+    "MV": [{
+        "key": "maldives",
+        "en": "Maldives",
+        "code": 960
+    }],
+    "OM": [{
+        "key": "oman",
+        "en": "Oman",
+        "code": 968
+    }],
+    "NR": [{
+        "key": "nauru",
+        "en": "Nauru",
+        "code": 674
+    }],
+    "MW": [{
+        "key": "malawi",
+        "en": "Malawi",
+        "code": 265
+    }],
+    "MX": [{
+        "key": "mexico",
+        "en": "Mexico",
+        "code": 52
+    }],
+    "PK": [{
+        "key": "pakistan",
+        "en": "Pakistan",
+        "code": 92
+    }],
+    "MY": [{
+        "key": "malaysia",
+        "en": "Malaysia",
+        "code": 60
+    }],
+    "NU": [{
+        "key": "niue",
+        "en": "Niue",
+        "code": 683
+    }],
+    "PL": [{
+        "key": "poland",
+        "en": "Poland",
+        "code": 48
+    }],
+    "MZ": [{
+        "key": "mozambique",
+        "en": "Mozambique",
+        "code": 258
+    }],
+    "PM": [{
+        "key": "st_pierre_and_miquelon",
+        "en": "St. Pierre & Miquelon",
+        "code": 508
+    }],
+    "PN": [{
+        "key": "pitcairn_islands",
+        "en": "Pitcairn Islands",
+        "code": 64
+    }],
+    "RE": [{
+        "key": "region_reunion",
+        "en": "Réunion",
+        "code": 262
+    }],
+    "SA": [{
+        "key": "saudi_arabia",
+        "en": "Saudi Arabia",
+        "code": 966
+    }],
+    "SB": [{
+        "key": "solomon_islands",
+        "en": "Solomon Is",
+        "code": 677
+    }],
+    "NZ": [{
+        "key": "new_zealand",
+        "en": "New Zealand",
+        "code": 64
+    }],
+    "SC": [{
+        "key": "seychelles",
+        "en": "Seychelles",
+        "code": 248
+    }],
+    "SD": [{
+        "key": "sudan",
+        "en": "Sudan",
+        "code": 249
+    }],
+    "PR": [{
+        "key": "puerto_rico",
+        "en": "Puerto Rico",
+        "code": 1787
+    }, {
+        "key": "puerto_rico",
+        "en": "Puerto Rico",
+        "code": 1939
+    }],
+    "SE": [{
+        "key": "sweden",
+        "en": "Sweden",
+        "code": 46
+    }],
+    "PS": [{
+        "key": "palestinian_territories",
+        "en": "Palestinian Territories",
+        "code": 970
+    }],
+    "PT": [{
+        "key": "portugal",
+        "en": "Portugal",
+        "code": 351
+    }],
+    "SG": [{
+        "key": "singapore",
+        "en": "Singapore",
+        "code": 65
+    }],
+    "TC": [{
+        "key": "turks_and_caicos_islands",
+        "en": "Turks & Caicos Islands",
+        "code": 1649
+    }],
+    "SH": [{
+        "key": "ascension",
+        "en": "Ascension Island",
+        "code": 247
+    }, {
+        "key": "region_st_helena",
+        "en": "St. Helena",
+        "code": 290
+    }],
+    "TD": [{
+        "key": "chad",
+        "en": "Chad",
+        "code": 235
+    }],
+    "SI": [{
+        "key": "slovenia",
+        "en": "Slovenia",
+        "code": 386
+    }],
+    "PW": [{
+        "key": "palau",
+        "en": "Palau",
+        "code": 680
+    }],
+    "SJ": [{
+        "key": "region_svalbard",
+        "en": "Svalbard & Jan Mayen",
+        "code": 4779
+    }],
+    "UA": [{
+        "key": "ukraine",
+        "en": "Ukraine",
+        "code": 380
+    }],
+    "RO": [{
+        "key": "romania",
+        "en": "Romania",
+        "code": 40
+    }],
+    "SK": [{
+        "key": "slovakia",
+        "en": "Slovakia",
+        "code": 421
+    }],
+    "PY": [{
+        "key": "paraguay",
+        "en": "Paraguay",
+        "code": 595
+    }],
+    "TG": [{
+        "key": "togo",
+        "en": "Togo",
+        "code": 228
+    }],
+    "SL": [{
+        "key": "sierra_leone",
+        "en": "Sierra Leone",
+        "code": 232
+    }],
+    "TH": [{
+        "key": "thailand",
+        "en": "Thailand",
+        "code": 66
+    }],
+    "SM": [{
+        "key": "san_marino",
+        "en": "San Marino",
+        "code": 378
+    }],
+    "SN": [{
+        "key": "senegal",
+        "en": "Senegal",
+        "code": 221
+    }],
+    "RS": [{
+        "key": "serbia",
+        "en": "Serbia",
+        "code": 381
+    }],
+    "TJ": [{
+        "key": "tajikistan",
+        "en": "Tajikstan",
+        "code": 992
+    }],
+    "VA": [{
+        "key": "vatican_city",
+        "en": "Vatican City",
+        "code": 379
+    }, {
+        "key": "vatican_city",
+        "en": "Vatican City",
+        "code": 3906698
+    }],
+    "SO": [{
+        "key": "somalia",
+        "en": "Somali",
+        "code": 252
+    }],
+    "TK": [{
+        "key": "tokelau",
+        "en": "Tokelau",
+        "code": 690
+    }],
+    "UG": [{
+        "key": "uganda",
+        "en": "Uganda",
+        "code": 256
+    }],
+    "RU": [{
+        "key": "russia",
+        "en": "Russia",
+        "code": 7
+    }],
+    "TL": [{
+        "key": "east_timor",
+        "en": "Timor-Leste",
+        "code": 670
+    }],
+    "VC": [{
+        "key": "region_st_vincent",
+        "en": "St. Vincent & Grenadines",
+        "code": 1784
+    }],
+    "TM": [{
+        "key": "turkmenistan",
+        "en": "Turkmenistan",
+        "code": 993
+    }],
+    "SR": [{
+        "key": "suriname",
+        "en": "Suriname",
+        "code": 597
+    }],
+    "RW": [{
+        "key": "rwanda",
+        "en": "Rwanda",
+        "code": 250
+    }],
+    "TN": [{
+        "key": "tunisia",
+        "en": "Tunisia",
+        "code": 216
+    }],
+    "VE": [{
+        "key": "venezuela",
+        "en": "Venezuela",
+        "code": 58
+    }],
+    "SS": [{
+        "key": "south_sudan",
+        "en": "South Sudan",
+        "code": 211
+    }],
+    "TO": [{
+        "key": "tonga",
+        "en": "Tonga",
+        "code": 676
+    }],
+    "ST": [{
+        "key": "region_sao_tome_Principe",
+        "en": "Sao Tome and Principe",
+        "code": 239
+    }],
+    "VG": [{
+        "key": "british_virgin_islands",
+        "en": "British Virgin Islands",
+        "code": 1284
+    }],
+    "SV": [{
+        "key": "el_salvador",
+        "en": "EI Salvador",
+        "code": 503
+    }],
+    "TR": [{
+        "key": "turkey",
+        "en": "Turkey",
+        "code": 90
+    }],
+    "VI": [{
+        "key": "u_s_virgin_islands",
+        "en": "U.S. Virgin Islands",
+        "code": 1340
+    }],
+    "SX": [{
+        "key": "sint_maarten",
+        "en": "Sint Maarten",
+        "code": 1721
+    }],
+    "WF": [{
+        "key": "wallis_and_futuna",
+        "en": "Wallis & Futuna",
+        "code": 681
+    }],
+    "TT": [{
+        "key": "trinidad_and_tobago",
+        "en": "Trinidad & Tobago",
+        "code": 1868
+    }],
+    "SZ": [{
+        "key": "eswatini",
+        "en": "Eswatini",
+        "code": 268
+    }],
+    "TV": [{
+        "key": "tuvalu",
+        "en": "Tuvalu",
+        "code": 688
+    }],
+    "TW": [{
+        "key": "taiwan",
+        "en": "Taiwan",
+        "code": 886
+    }],
+    "VN": [{
+        "key": "vietnam",
+        "en": "Vietnam",
+        "code": 84
+    }],
+    "US": [{
+        "key": "united_states",
+        "en": "United States",
+        "code": 1
+    }],
+    "TZ": [{
+        "key": "tanzania",
+        "en": "Tanzania",
+        "code": 255
+    }],
+    "YE": [{
+        "key": "yemen",
+        "en": "Yemen",
+        "code": 967
+    }],
+    "ZA": [{
+        "key": "south_africa",
+        "en": "South Africa",
+        "code": 27
+    }],
+    "XK": [{
+        "key": "region_kosovo",
+        "en": "Kosovo",
+        "code": 383
+    }],
+    "UY": [{
+        "key": "uruguay",
+        "en": "Uruguay",
+        "code": 598
+    }],
+    "VU": [{
+        "key": "vanuatu",
+        "en": "Vanuatu",
+        "code": 678
+    }],
+    "UZ": [{
+        "key": "uzbekistan",
+        "en": "Uzbekistan",
+        "code": 998
+    }],
+    "WS": [{
+        "key": "samoa",
+        "en": "Samoa",
+        "code": 685
+    }],
+    "ZM": [{
+        "key": "zambia",
+        "en": "Zambia",
+        "code": 260
+    }],
+    "AD": [{
+        "key": "andorra",
+        "en": "Andorra",
+        "code": 376
+    }],
+    "YT": [{
+        "key": "mayotte",
+        "en": "Mayotte",
+        "code": 262
+    }],
+    "AE": [{
+        "key": "united_arab_emirates",
+        "en": "United Arab Emirates",
+        "code": 971
+    }],
+    "BA": [{
+        "key": "bosnia_and_herzegovina",
+        "en": "Bosnia & Herzegovina",
+        "code": 387
+    }],
+    "AF": [{
+        "key": "afghanistan",
+        "en": "Afghanistan",
+        "code": 93
+    }],
+    "BB": [{
+        "key": "barbados",
+        "en": "Barbados",
+        "code": 1246
+    }],
+    "AG": [{
+        "key": "antigua_and_barbuda",
+        "en": "Antigua & Barbuda",
+        "code": 1268
+    }],
+    "BD": [{
+        "key": "bangladesh",
+        "en": "Bangladesh",
+        "code": 880
+    }],
+    "AI": [{
+        "key": "anguilla",
+        "en": "Anguilla",
+        "code": 1264
+    }],
+    "BE": [{
+        "key": "belgium",
+        "en": "Belgium",
+        "code": 32
+    }],
+    "CA": [{
+        "key": "canada",
+        "en": "Canada",
+        "code": 1
+    }],
+    "BF": [{
+        "key": "burkina_faso",
+        "en": "Burkina-faso",
+        "code": 226
+    }],
+    "BG": [{
+        "key": "bulgaria",
+        "en": "Bulgaria",
+        "code": 359
+    }],
+    "ZW": [{
+        "key": "zimbabwe",
+        "en": "Zimbabwe",
+        "code": 263
+    }],
+    "AL": [{
+        "key": "albania",
+        "en": "Albania",
+        "code": 355
+    }],
+    "CC": [{
+        "key": "cocos_keeling_islands",
+        "en": "Cocos (Keeling) Islands",
+        "code": 61
+    }],
+    "BH": [{
+        "key": "bahrain",
+        "en": "Bahrain",
+        "code": 973
+    }],
+    "AM": [{
+        "key": "armenia",
+        "en": "Armenia",
+        "code": 374
+    }],
+    "CD": [{
+        "key": "congo_kinshasa",
+        "en": "Congo - Kinshasa",
+        "code": 243
+    }],
+    "BI": [{
+        "key": "burundi",
+        "en": "Burundi",
+        "code": 257
+    }],
+    "BJ": [{
+        "key": "benin",
+        "en": "Benin",
+        "code": 229
+    }],
+    "AO": [{
+        "key": "angola",
+        "en": "Angola",
+        "code": 244
+    }],
+    "CF": [{
+        "key": "central_african_republic",
+        "en": "Central African Republic",
+        "code": 236
+    }],
+    "CG": [{
+        "key": "region_congo_brazzaville_2",
+        "en": "Congo - Brazzaville",
+        "code": 242
+    }],
+    "BL": [{
+        "key": "st_barthélemy",
+        "en": "St. Barthélemy",
+        "code": 590
+    }],
+    "CH": [{
+        "key": "switzerland",
+        "en": "Switzerland",
+        "code": 41
+    }],
+    "BM": [{
+        "key": "region_bermuda",
+        "en": "Bermuda",
+        "code": 1441
+    }],
+    "AR": [{
+        "key": "argentina",
+        "en": "Argentina",
+        "code": 54
+    }],
+    "CI": [{
+        "key": "côte_d_ivoire",
+        "en": "Ivory Coast",
+        "code": 225
+    }],
+    "BN": [{
+        "key": "brunei",
+        "en": "Brunei",
+        "code": 673
+    }],
+    "DE": [{
+        "key": "germany",
+        "en": "Germany",
+        "code": 49
+    }],
+    "AS": [{
+        "key": "american_samoa",
+        "en": "American Samoa",
+        "code": 1684
+    }],
+    "BO": [{
+        "key": "bolivia",
+        "en": "Bolivia",
+        "code": 591
+    }],
+    "AT": [{
+        "key": "austria",
+        "en": "Austria",
+        "code": 43
+    }],
+    "CK": [{
+        "key": "cook_islands",
+        "en": "Cook Is.",
+        "code": 682
+    }],
+    "DG": [{
+        "key": "diego_garcia",
+        "en": "Diego Garcia",
+        "code": 246
+    }],
+    "AU": [{
+        "key": "australia",
+        "en": "Australia",
+        "code": 61
+    }],
+    "CL": [{
+        "key": "chile",
+        "en": "Chile",
+        "code": 56
+    }],
+    "EC": [{
+        "key": "ecuador",
+        "en": "Ecuador",
+        "code": 593
+    }],
+    "BQ": [{
+        "key": "caribbean_netherlands",
+        "en": "Caribbean Netherlands",
+        "code": 5997
+    }],
+    "CM": [{
+        "key": "cameroon",
+        "en": "Cameroon",
+        "code": 237
+    }],
+    "BR": [{
+        "key": "brazil",
+        "en": "Brazil",
+        "code": 55
+    }],
+    "AW": [{
+        "key": "aruba",
+        "en": "Aruba",
+        "code": 297
+    }],
+    "CN": [{
+        "key": "china",
+        "en": "China mainland",
+        "code": 86
+    }],
+    "EE": [{
+        "key": "estonia",
+        "en": "Estonia",
+        "code": 372
+    }],
+    "BS": [{
+        "key": "bahamas",
+        "en": "Bahamas",
+        "code": 1242
+    }],
+    "DJ": [{
+        "key": "djibouti",
+        "en": "Djibouti",
+        "code": 253
+    }],
+    "AX": [{
+        "key": "åland_islands",
+        "en": "Åland Islands",
+        "code": 35818
+    }],
+    "CO": [{
+        "key": "colombia",
+        "en": "Colombia",
+        "code": 57
+    }],
+    "BT": [{
+        "key": "bhutan",
+        "en": "Bhutan",
+        "code": 975
+    }],
+    "DK": [{
+        "key": "denmark",
+        "en": "Denmark",
+        "code": 45
+    }],
+    "EG": [{
+        "key": "egypt",
+        "en": "Egypt",
+        "code": 20
+    }],
+    "AZ": [{
+        "key": "azerbaijan",
+        "en": "Azerbaijan",
+        "code": 994
+    }],
+    "EH": [{
+        "key": "region_western_sahara",
+        "en": "Western Sahara",
+        "code": 212
+    }],
+    "DM": [{
+        "key": "dominica",
+        "en": "Dominica",
+        "code": 1767
+    }],
+    "CR": [{
+        "key": "costa_rica",
+        "en": "Costa Rica",
+        "code": 506
+    }],
+    "BW": [{
+        "key": "botswana",
+        "en": "Botswana",
+        "code": 267
+    }],
+    "GA": [{
+        "key": "gabon",
+        "en": "Gabon",
+        "code": 241
+    }],
+    "DO": [{
+        "key": "dominican_republic",
+        "en": "Dominica Rep.",
+        "code": 1
+    }],
+    "BY": [{
+        "key": "belarus",
+        "en": "Belarus",
+        "code": 375
+    }],
+    "GB": [{
+        "key": "united_kingdom",
+        "en": "United Kingdom",
+        "code": 44
+    }],
+    "BZ": [{
+        "key": "belize",
+        "en": "Belize",
+        "code": 501
+    }],
+    "CV": [{
+        "key": "cape_verde",
+        "en": "Cape Verde",
+        "code": 238
+    }],
+    "GD": [{
+        "key": "grenada",
+        "en": "Grenada",
+        "code": 1473
+    }],
+    "FI": [{
+        "key": "finland",
+        "en": "Finland",
+        "code": 358
+    }],
+    "CW": [{
+        "key": "curaçao",
+        "en": "Curaçao",
+        "code": 5999
+    }],
+    "GE": [{
+        "key": "georgia",
+        "en": "Georgia",
+        "code": 995
+    }],
+    "FJ": [{
+        "key": "fiji",
+        "en": "Fiji",
+        "code": 679
+    }],
+    "CX": [{
+        "key": "christmas_island",
+        "en": "Christmas Island",
+        "code": 61
+    }],
+    "GF": [{
+        "key": "french_guiana",
+        "en": "French Guiana",
+        "code": 594
+    }],
+    "FK": [{
+        "key": "falkland_islands",
+        "en": "Falkland Islands",
+        "code": 500
+    }],
+    "CY": [{
+        "key": "cyprus",
+        "en": "Cyprus",
+        "code": 357
+    }],
+    "GG": [{
+        "key": "guernsey",
+        "en": "Guernsey",
+        "code": 44
+    }],
+    "CZ": [{
+        "key": "region_czech",
+        "en": "Czechia",
+        "code": 420
+    }],
+    "GH": [{
+        "key": "ghana",
+        "en": "Ghana",
+        "code": 233
+    }],
+    "FM": [{
+        "key": "micronesia",
+        "en": "Micronesia",
+        "code": 691
+    }],
+    "ER": [{
+        "key": "eritrea",
+        "en": "Eritrea",
+        "code": 291
+    }],
+    "GI": [{
+        "key": "gibraltar",
+        "en": "Gibraltar",
+        "code": 350
+    }],
+    "ES": [{
+        "key": "spain",
+        "en": "Spain",
+        "code": 34
+    }],
+    "FO": [{
+        "key": "faroe_islands",
+        "en": "Faroe Islands",
+        "code": 298
+    }],
+    "ET": [{
+        "key": "ethiopia",
+        "en": "Ethiopia",
+        "code": 251
+    }],
+    "GL": [{
+        "key": "greenland",
+        "en": "Greenland",
+        "code": 299
+    }],
+    "DZ": [{
+        "key": "algeria",
+        "en": "Algeria",
+        "code": 213
+    }],
+    "GM": [{
+        "key": "gambia",
+        "en": "Gambia",
+        "code": 220
+    }],
+    "ID": [{
+        "key": "indonesia",
+        "en": "Indonesia",
+        "code": 62
+    }],
+    "FR": [{
+        "key": "france",
+        "en": "France",
+        "code": 33
+    }],
+    "GN": [{
+        "key": "guinea",
+        "en": "Guinea",
+        "code": 224
+    }],
+    "IE": [{
+        "key": "ireland",
+        "en": "Ireland",
+        "code": 353
+    }],
+    "HK": [{
+        "key": "region_hong_kong",
+        "en": "Hongkong",
+        "code": 852
+    }],
+    "GP": [{
+        "key": "guadeloupe",
+        "en": "Guadeloupe",
+        "code": 590
+    }],
+    "GQ": [{
+        "key": "equatorial_guinea",
+        "en": "Equatorial Guinea",
+        "code": 240
+    }],
+    "GR": [{
+        "key": "greece",
+        "en": "Greece",
+        "code": 30
+    }],
+    "HN": [{
+        "key": "honduras",
+        "en": "Honduras",
+        "code": 504
+    }],
+    "JE": [{
+        "key": "jersey",
+        "en": "Jersey",
+        "code": 44
+    }],
+    "GS": [{
+        "key": "south_georgia_and_south_sandwich_islands",
+        "en": "So. Georgia & So. Sandwich  Isl.",
+        "code": 500
+    }],
+    "GT": [{
+        "key": "guatemala",
+        "en": "Guatemala",
+        "code": 502
+    }],
+    "GU": [{
+        "key": "guam",
+        "en": "Guam",
+        "code": 1671
+    }],
+    "IL": [{
+        "key": "israel",
+        "en": "Israel",
+        "code": 972
+    }]
+}

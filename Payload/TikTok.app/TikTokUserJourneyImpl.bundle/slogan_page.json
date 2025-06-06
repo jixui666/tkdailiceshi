@@ -1,0 +1,16 @@
+{
+  "config": [
+    {
+      "id": "revamp_v2_language_list",
+      "filters": [
+        {
+          "name": "coin_nuj_revamp_client_ab",
+          "operator": "==",
+          "value": "1",
+          "result": "もっと世界を\n好きになる。@!^!@트렌드의 시작,\n틱톡@!^!@Videos to\nMake\nYour Day@!^!@Videos que\nte alegrarán\nel día@!^!@فيديوهات\nلتسعد يومك@!^!@Vidéos pour\nPasser\nune bonne journée@!^!@Видео, которые\nзарядят позитивом\nна весь день@!^!@为你开启\n美好的一天"
+        }
+      ],
+      "fallback_result": "Videos to\nMake\nYour Day@!^!@Videos que\nte alegrarán\nel día@!^!@فيديوهات\nلتسعد يومك@!^!@Vidéos pour\nPasser\nune bonne journée@!^!@Видео, которые\nзарядят позитивом\nна весь день@!^!@为你开启\n美好的一天"
+    }
+  ]
+}

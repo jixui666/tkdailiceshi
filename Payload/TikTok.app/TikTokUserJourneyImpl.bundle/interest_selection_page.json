@@ -1,0 +1,48 @@
+{
+  "config": [
+    {
+      "id": "page_style",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "0",
+          "result": "online"
+        },
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "1",
+          "result": "revamp_v1"
+        },
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "2",
+          "result": "revamp_v2"
+        }
+      ],
+      "fallback_result": "online"
+    },
+    {
+      "id": "top_icon_style",
+      "filters": [
+        {
+          "name": "coin_nuj_revamp_client_ab",
+          "operator": "==",
+          "value": "1",
+          "result": "coin"
+        }
+      ],
+      "fallback_result": "revamp"
+    },
+    {
+      "id": "skip_button_style",
+      "fallback_result": "top_left"
+    },
+    {
+      "id": "need_show_selected_tag_num",
+      "fallback_result": "true"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+//link_tiktok_toast_failed_5
+"Couldn't link" = "การเชื่อมโยงหยุดแล้ว";
+//link_tiktok_toast_failed_2
+"Couldn't link. You already linked Lemon8 to a TikTok account." = "ไม่สามารถเชื่อมโยงได้ คุณเชื่อมโยง Lemon8 กับบัญชี TikTok อยู่แล้ว";
+//link_tiktok_toast_failed_1
+"Couldn't link. You already linked TikTok to a Lemon8 account." = "ไม่สามารถเชื่อมโยงได้ คุณเชื่อมโยง TikTok กับบัญชี Lemon8 อยู่แล้ว";
+//link_tiktok_toast_failed_5
+"Linking stopped" = "การเชื่อมโยงหยุดแล้ว";
+//link_tiktok_toast_failed_6
+"Network error. Try again." = "ข้อผิดพลาดของเครือข่าย ลองอีกครั้ง";
+//link_tiktok_toast_success
+"Your Lemon8 account was linked" = "เชื่อมโยงบัญชี Lemon8 ของคุณแล้ว";

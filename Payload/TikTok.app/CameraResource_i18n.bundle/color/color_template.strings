@@ -1,0 +1,338 @@
+"acc_color_const_bg_inverse" = "#000000/1.0";
+"acc_color_const_bg_inverse2" = "#000000/0.6";
+"acc_color_const_line_inverse" = "#FFFFFF/0.2";
+"acc_color_const_line_inverse2" = "#FFFFFF/0.12";
+"acc_color_const_text_inverse" = "#FFFFFF/1.0";
+"acc_color_const_text_inverse2" = "#FFFFFF/0.9";
+"acc_color_const_text_inverse4" = "#FFFFFF/0.5";
+"acc_color_const_text_inverse5" = "#FFFFFF/0.34";
+
+"acc_ui_color_const_primary" = "#FE2C55/1.0";
+"acc_ui_color_const_primary2" = "#FACE15/1.0";
+"acc_ui_color_const_primary3" = "#FACE15/0.9";
+"acc_ui_color_const_secondary" = "#20D5EC/1.0";
+
+"acc_ui_color_const_icon_primary" = "#161823/1.0";
+"acc_ui_color_const_icon_tertiary" = "#161823/0.34";
+"acc_ui_color_const_icon_inverse" = "#FFFFFF/1.0";
+"acc_ui_color_const_icon_inverse2" = "#FFFFFF/0.9";
+"acc_ui_color_const_icon_inverse3" = "#FFFFFF/0.75";
+
+"acc_ui_color_const_line_primary" = "#161823/0.2";
+"acc_ui_color_const_line_primary2" = "#161823/0.2";
+"acc_ui_color_const_line_inverse" = "#FFFFFF/0.2";
+"acc_ui_color_const_line_inverse2" = "#FFFFFF/0.12";
+"acc_ui_color_const_line_secondary" = "#161823/0.12";
+"acc_ui_color_const_line_secondary2" = "#FFFFFF/0.08";
+
+"acc_ui_color_const_text_primary" = "#161823/0.9";
+"acc_ui_color_const_text_primary2" = "#161823/0.6";
+"acc_ui_color_const_text_primary3" = "#161823/1.0";
+"acc_ui_color_const_text_secondary" = "#161823/0.75";
+"acc_ui_color_const_text_tertiary" = "#161823/0.5";
+"acc_ui_color_const_text_tertiary2" = "#161823/0.34";
+"acc_ui_color_const_text_tertiary3" = "#FFFFFF/0.3";
+"acc_ui_color_const_text_tertiary4" = "#FFFFFF/0.6";
+"acc_ui_color_const_text_inverse" = "#FFFFFF/1.0";
+"acc_ui_color_const_text_inverse2" = "#FFFFFF/0.9";
+"acc_ui_color_const_text_inverse3" = "#FFFFFF/0.5";
+"acc_ui_color_const_text_inverse4" = "#FFFFFF/0.34";
+"acc_ui_color_const_text_tool_tip" = "#FFFFFF/1.0";
+
+"acc_ui_color_const_tint_primary" = "#ECEEF8/1.0";
+
+"acc_ui_color_const_sd_primary" = "#000000/0.85";
+"acc_ui_color_const_sd_secondary" = "#000000/0.5";
+"acc_ui_color_const_sd_inverse" = "#000000/0.15";
+
+"acc_ui_color_const_bg_container" = "#FFFFFF/1.0";
+"acc_ui_color_const_bg_container2" = "#FFFFFF/1.0";
+"acc_ui_color_const_bg_container3" = "#000000/0.6";
+"acc_ui_color_const_bg_container4" = "#FFFFFF/0.9";
+"acc_ui_color_const_bg_container5" = "#FFFFFF/1.0";
+"acc_ui_color_const_bg_container6" = "#FE2C55/0.9";
+"acc_ui_color_const_bg_container7" = "#FFFFFF/0.06";
+"acc_ui_color_const_bg_container_inverse" = "#FFFFFF/0.15";
+"acc_ui_color_const_bg_view" = "#0E0F1A/1.0";
+"acc_ui_color_const_bg_input" = "#161823/0.06";
+"acc_ui_color_const_bg_inverse" = "#000000/1.0";
+"acc_ui_color_const_bg_inverse2" = "#000000/0.34";
+
+"acc_ui_color_const_phone" = "#0BE09B/1.0";
+
+"acc_ui_color_const_gradient" = "#000000/0.3";
+
+"acc_color_live_color_end" = "#ED3495/1.0";
+"acc_color_live_color_start" = "#FF1764/1.0";
+"acc_color_bg_brand" = "#FE2C55/0.06";
+"acc_color_bg_creation" = "#121212/1.0";
+"acc_color_bg_creation2" = "#1B1B1B/1.0";
+"acc_color_bg_creation3" = "#F8F8F8/1.0";
+"acc_color_bg_creation4" = "#FFFFFF/1.0";
+"acc_color_bg_creation5" = "#000000/0.15";
+"acc_color_bg_input" = "#161823/0.06";
+"acc_color_bg_input2" = "#161823/0.06";
+"acc_color_bg_inverse3" = "#252525/0.6";
+"acc_color_bg_input_reverse" = "#161823/0.06";
+"acc_color_bg_placeholder_default" = "#161823/0.06";
+"acc_color_bg_placeholder_opaque" = "#F1F1F1/1.0";
+"acc_color_bg_primary" = "#FFFFFF/1.0";
+"acc_color_bg_primary2" = "#FFFFFF/1.0";
+"acc_color_bg_primary3" = "#161823/1.0";
+"acc_color_bg_quaternary" = "#FFFFFF/1.0";
+"acc_color_bg_reverse" = "#FFFFFF/1.0";
+"acc_color_bg_reverse2" = "#FFFFFF/0.9";
+"acc_color_bg_secondary" = "#FFFFFF/1.0";
+"acc_color_bg_secondary2" = "#FFFFFF/1.0";
+"acc_color_bg_tertiary" = "#FFFFFF/1.0";
+"acc_color_bg_tertiary2" = "#FFFFFF/1.0";
+"acc_color_bg_tertiary3" = "#FFFFFF/0.15";
+"acc_color_bg_view" = "#161823/0.03";
+"acc_color_bg_view2" = "#161823/0.03";
+"acc_color_bg_view3" = "#0E0F1A/1.0";
+"acc_color_const_bg_container" = "#FFFFFF/0.12";
+"acc_color_const_bg_container2" = "#FFFFFF/0.08";
+"acc_color_const_bg_container3" = "#FFFFFF/0.04";
+"acc_color_const_bg_container5" = "#FFFFFF/0.15";
+"acc_color_const_text_inverse3" = "#FFFFFF/0.75";
+"acc_color_line_input" = "#161823/0.5";
+"acc_color_line_inverse" = "#161823/0.2";
+"acc_color_line_primary" = "#161823/0.2";
+"acc_color_line_primary2" = "#161823/0.2";
+"acc_color_line_primary3" = "#FFFFFF/0.08";
+"acc_color_line_reverse2" = "#161823/0.12";
+"acc_color_line_reverse3" = "#161823/0.12";
+"acc_color_line_secondary" = "#161823/0.12";
+"acc_color_line_secondary2" = "#161823/0.12";
+"acc_color_link" = "#FE2C55/1.0";
+"acc_color_link2" = "#FE2C55/1.0";
+"acc_color_link3" = "#FE2C55/1.0";
+"acc_color_negative" = "#FF4C3A/1.0";
+"acc_color_positive" = "#0BE09B/1.0";
+"acc_color_primary" = "#FE2C55/1.0";
+"acc_color_primary2" = "#161823/1.0";
+"acc_color_primary3" = "#FE2C55/1.0";
+"acc_color_sd_primary" = "#000000/0.8";
+"acc_color_sd_secondary" = "#000000/0.5";
+"acc_color_sd_tertiary" = "#000000/0.2";
+"acc_color_secondary" = "#20D5EC/1.0";
+"acc_color_secondary2" = "#00C6E9/1.0";
+"acc_color_shadow_primary" = "#000000/0.12";
+"acc_color_shadow_secondary" = "#000000/0.06";
+"acc_color_tag_brown_bg" = "#F5F0F0/1.0";
+"acc_color_tag_brown_text" = "#805959/1.0";
+"acc_color_tag_green_bg" = "#EFF5F2/1.0";
+"acc_color_tag_green_text" = "#59806C/1.0";
+"acc_color_tag_purple_bg" = "#F6F0F5/1.0";
+"acc_color_tag_purple_text" = "#805979/1.0";
+"acc_color_text_primary" = "#161823/1.0";
+"acc_color_text_quaternary" = "#161823/0.34";
+"acc_color_text_reverse" = "#161823/1.0";
+"acc_color_text_reverse2" = "#161823/0.75";
+"acc_color_text_reverse3" = "#161823/0.5";
+"acc_color_text_reverse4" = "#161823/0.34";
+"acc_color_text_secondary" = "#161823/0.75";
+"acc_color_text_tertiary" = "#161823/0.5";
+"acc_color_text_tertiary2" = "#161823/0.5";
+"acc_color_toast_default" = "#545454/0.92";
+"acc_color_toast_negative" = "#FF4C3A/0.92";
+"acc_color_assist_color_yellow" = "#FACE15/1.0";
+
+
+"acc_color_bg_creation_dark" = "#121212/1.0";
+"acc_color_bg_creation2_dark" = "#1B1B1B/1.0";
+"acc_color_bg_creation3_dark" = "#121212/1.0";
+"acc_color_bg_creation4_dark" = "#1B1B1B/1.0";
+"acc_color_bg_input_dark" = "#FFFFFF/0.12";
+"acc_color_bg_input2_dark" = "#FFFFFF/0.08";
+"acc_color_bg_inverse3_dark" = "#252525/0.6";
+"acc_color_bg_placeholder_default_dark" = "#FFFFFF/0.08";
+"acc_color_bg_placeholder_opaque_dark" = "#252525/1.0";
+"acc_color_bg_primary_dark" = "#121212/1.0";
+"acc_color_bg_primary2_dark" = "#FFFFFF/0.04";
+"acc_color_bg_quaternary_dark" = "#383838/1.0";
+"acc_color_bg_reverse_dark" = "#121212/1.0";
+"acc_color_bg_reverse2_dark" = "#121212/0.9";
+"acc_color_bg_secondary_dark" = "#252525/1.0";
+"acc_color_bg_secondary2_dark" = "#FFFFFF/0.08";
+"acc_color_bg_tertiary_dark" = "#2E2E2E/1.0";
+"acc_color_bg_tertiary2_dark" = "#FFFFFF/0.12";
+"acc_color_bg_view_dark" = "#FFFFFF/0.04";
+"acc_color_bg_view2_dark" = "#161823/0.03";
+"acc_color_const_bg_container_dark" = "#FFFFFF/0.12";
+"acc_color_const_bg_container2_dark" = "#FFFFFF/0.08";
+"acc_color_const_bg_container3_dark" = "#FFFFFF/0.04";
+"acc_color_const_bg_container5_dark" = "#FFFFFF/0.15";
+"acc_color_const_text_inverse3_dark" = "#FFFFFF/0.75";
+"acc_color_line_input_dark" = "#FFFFFF/0.5";
+"acc_color_line_inverse_dark" = "#FFFFFF/0";
+"acc_color_line_primary_dark" = "#FFFFFF/0";
+"acc_color_line_primary2_dark" = "#FFFFFF/0.2";
+"acc_color_line_reverse2_dark" = "#FFFFFF/0.12";
+"acc_color_line_reverse3_dark" = "#FFFFFF/0";
+"acc_color_line_secondary_dark" = "#FFFFFF/0.12";
+"acc_color_line_secondary2_dark" = "#FFFFFF/0";
+"acc_color_link_dark" = "#FF3B5C/1.0";
+"acc_color_link2_dark" = "#FF3B5C/1.0";
+"acc_color_link3_dark" = "#FF3B5C/1.0";
+"acc_color_negative_dark" = "#FF4C3A/1.0";
+"acc_color_positive_dark" = "#0BE09B/1.0";
+"acc_color_primary_dark" = "#FF3B5C/1.0";
+"acc_color_primary2_dark" = "#FFFFFF/0.9";
+"acc_color_sd_primary_dark" = "#000000/0.8";
+"acc_color_sd_secondary_dark" = "#000000/0.68";
+"acc_color_sd_tertiary_dark" = "#000000/0.5";
+"acc_color_secondary_dark" = "#20D5EC/1.0";
+"acc_color_secondary2_dark" = "#00C6E9/1.0";
+"acc_color_shadow_primary_dark" = "#000000/0.12";
+"acc_color_shadow_secondary_dark" = "#000000/0.06";
+"acc_color_tag_brown_bg_dark" = "#805959/1.0";
+"acc_color_tag_brown_text_dark" = "#FFB3B3/1.0";
+"acc_color_tag_green_bg_dark" = "#598066/1.0";
+"acc_color_tag_green_text_dark" = "#B2FFD9/1.0";
+"acc_color_tag_purple_bg_dark" = "#80596C/1.0";
+"acc_color_tag_purple_text_dark" = "#FFB2D9/1.0";
+"acc_color_text_primary_dark" = "#FFFFFF/0.9";
+"acc_color_text_quaternary_dark" = "#FFFFFF/0.34";
+"acc_color_text_reverse_dark" = "#FFFFFF/0.9";
+"acc_color_text_reverse2_dark" = "#FFFFFF/0.75";
+"acc_color_text_reverse3_dark" = "#FFFFFF/0.5";
+"acc_color_text_reverse4_dark" = "#FFFFFF/0.34";
+"acc_color_text_secondary_dark" = "#FFFFFF/0.75";
+"acc_color_text_tertiary_dark" = "#FFFFFF/0.5";
+"acc_color_text_tertiary2_dark" = "#FFFFFF/0.75";
+"acc_color_toast_default_dark" = "#545454/0.92";
+"acc_color_toast_negative_dark" = "#FF4C3A/0.92";
+"acc_color_assist_color_yellow_dark" = "#FACE15/1.0";
+
+
+"acc_ui_color_primary" = "#FE2C55/1.0";
+"acc_ui_color_primary2" = "#161823/1.0";
+"acc_ui_color_secondary" = "#20D5EC/1.0";
+
+"acc_ui_color_mask" = "#FE2C55/0.8";
+
+"acc_ui_color_link" = "#FE2C55/1.0";
+"acc_ui_color_link2" = "#FE2C55/1.0";
+"acc_ui_color_link3" = "#FE2C55/1.0";
+"acc_ui_color_default" = "#545454/0.92";
+"acc_ui_color_negative" = "#FF4C3A/1.0";
+"acc_ui_color_negative2" = "#FF4C3A/0.92";
+
+"acc_ui_color_icon_primary" = "#161823/1.0";
+"acc_ui_color_icon_secondary" = "#161823/0.5";
+"acc_ui_color_icon_tertiary" = "#161823/0.34";
+"acc_ui_color_icon_tertiary2" = "#161823/0.34";
+"acc_ui_color_icon_inverse" = "#FFFFFF/1.0";
+
+"acc_ui_color_line_input" = "#161823/0.5";
+"acc_ui_color_line_primary" = "#161823/0.2";
+"acc_ui_color_line_primary2" = "#161823/0.2";
+"acc_ui_color_line_secondary" = "#161823/0.12";
+"acc_ui_color_line_secondary2" = "#161823/0.12";
+"acc_ui_color_line_tertiary" = "#161823/0.12";
+
+"acc_ui_color_text_primary" = "#161823/1.0";
+"acc_ui_color_text_secondary" = "#161823/0.75";
+"acc_ui_color_text_secondary2" = "#161823/0.5";
+"acc_ui_color_text_tertiary" = "#161823/0.5";
+"acc_ui_color_text_tertiary2" = "#161823/0.34";
+"acc_ui_color_text_tool_tip" = "#FFFFFF/1.0";
+"acc_ui_color_text_s1" = "#161823/0.6";
+"acc_ui_color_text_s2" = "#161823/0.6";
+
+"acc_ui_color_sd_secondary" = "#000000/0.5";
+"acc_ui_color_sd_tertiary" = "#000000/0.2";
+"acc_ui_color_sd_tertiary2" = "#161823/0.3";
+"acc_ui_color_sd_inverse" = "#000000/0.15";
+
+"acc_ui_color_image_primary" = "#161823/0.3";
+
+"acc_ui_color_bg_container" = "#FFFFFF/1.0";
+"acc_ui_color_bg_container2" = "#FFFFFF/1.0";
+"acc_ui_color_bg_container3" = "#000000/0.6";
+"acc_ui_color_bg_container4" = "#FFFFFF/0.9";
+"acc_ui_color_bg_container5" = "#FFFFFF/1.0";
+"acc_ui_color_bg_container6" = "#161823/1.0";
+"acc_ui_color_bg_container7" = "#161823/0.3";
+"acc_ui_color_bg_container8" = "#161823/0.9";
+"acc_ui_color_bg_container9" = "#161823/0.15";
+"acc_ui_color_bg_container10" = "#F8F8F8/1.0";
+"acc_ui_color_bg_container_im" = "#161823/0.06";
+"acc_ui_color_bg_container_creation" = "#121212/1.0";
+"acc_ui_color_bg_container_creation2" = "#1B1B1B/1.0";
+"acc_ui_color_bg_container_modal" = "#FFFFFF/1.0";
+"acc_ui_color_bg_input" = "#161823/0.06";
+"acc_ui_color_bg_input2" = "#161823/0.06";
+"acc_ui_color_bg_input3" = "#161823/0.06";
+"acc_ui_color_bg_view" = "#161823/0.03";
+"acc_ui_color_bg_view2" = "#161823/0.03";
+
+"acc_ui_color_placeholder_bg_default" = "#161823/0.06";
+"acc_ui_color_placeholder_bg_opaque" = "#F1F1F1/1.0";
+"acc_ui_color_bg_container_tab_inverse" = "#121212/1.0";
+"acc_ui_color_line_inverse" = "#FFFFFF/0.2";
+
+
+
+"acc_color_live_color_end_dark" = "#ED3495/1.0";
+"acc_color_live_color_start_dark" = "#FF1764/1.0";
+"acc_color_bg_brand_dark" = "#FE2C55/0.34";
+"acc_ui_color_primary_dark" = "#FF3B5C/1.0";
+"acc_ui_color_primary2_dark" = "#FFFFFF/0.9";
+"acc_ui_color_secondary_dark" = "#20D5EC/1.0";
+
+"acc_ui_color_mask_dark" = "#FE2C55/0.8";
+
+"acc_ui_color_link_dark" = "#FF3B5C/1.0";
+"acc_ui_color_link2_dark" = "#FF3B5C/1.0";
+"acc_ui_color_link3_dark" = "#FF3B5C/1.0";
+"acc_ui_color_default_dark" = "#545454/0.92";
+"acc_ui_color_negative_dark" = "#FF4C3A/1.0";
+"acc_ui_color_negative2_dark" = "#FF4C3A/0.92";
+
+"acc_ui_color_icon_primary_dark" = "#FFFFFF/0.9";
+"acc_ui_color_icon_secondary_dark" = "#FFFFFF/0.5";
+"acc_ui_color_icon_tertiary_dark" = "#FFFFFF/0.34";
+"acc_ui_color_icon_tertiary2_dark" = "#FFFFFF/0.34";
+"acc_ui_color_icon_inverse_dark" = "#FFFFFF/1.0";
+
+"acc_ui_color_line_input_dark" = "#FFFFFF/0.5";
+"acc_ui_color_line_primary_dark" = "#FFFFFF/0.2";
+"acc_ui_color_line_primary2_dark" = "#FFFFFF/0";
+"acc_ui_color_line_secondary_dark" = "#FFFFFF/0.12";
+"acc_ui_color_line_secondary2_dark" = "#FFFFFF/0";
+"acc_ui_color_line_tertiary_dark" = "#FFFFFF/0.12";
+
+"acc_ui_color_text_primary_dark" = "#FFFFFF/0.9";
+"acc_ui_color_text_secondary_dark" = "#FFFFFF/0.75";
+"acc_ui_color_text_secondary2_dark" = "#FFFFFF/0.75";
+"acc_ui_color_text_tertiary_dark" = "#FFFFFF/0.5";
+"acc_ui_color_text_tertiary2_dark" = "#FFFFFF/0.34";
+"acc_ui_color_text_tool_tip_dark" = "#FFFFFF/1.0";
+
+"acc_ui_color_sd_secondary_dark" = "#000000/0.68";
+"acc_ui_color_sd_tertiary_dark" = "#000000/0.68";
+"acc_ui_color_sd_tertiary2_dark" = "#161823/0.3";
+"acc_ui_color_sd_inverse_dark" = "#000000/0.15";
+
+"acc_ui_color_bg_container_dark" = "#121212/1.0";
+"acc_ui_color_bg_container2_dark" = "#252525/1.0";
+"acc_ui_color_bg_container3_dark" = "#000000/0.6";
+"acc_ui_color_bg_container4_dark" = "#000000/1.0";
+"acc_ui_color_bg_container5_dark" = "#383838/1.0";
+"acc_ui_color_bg_container_im_dark" = "#00C6E9/1.0";
+"acc_ui_color_bg_container_creation_dark" = "#121212/1.0";
+"acc_ui_color_bg_container_creation2_dark" = "#1B1B1B/1.0";
+"acc_ui_color_bg_container_modal_dark" = "#2E2E2E/1.0";
+"acc_ui_color_bg_input_dark" = "#FFFFFF/0.08";
+"acc_ui_color_bg_input2_dark" = "#252525/1.0";
+"acc_ui_color_bg_input3_dark" = "#FFFFFF/0";
+"acc_ui_color_bg_view_dark" = "#FFFFFF/0.04";
+"acc_ui_color_bg_view2_dark" = "#FFFFFF/0.00";
+
+"acc_ui_color_placeholder_bg_default_dark" = "#FFFFFF/0.08";
+"acc_ui_color_placeholder_bg_opaque_dark" = "#252525/1.0";
+"acc_ui_color_bg_container_tab_inverse_dark" = "#121212/1.0";
+"acc_ui_color_line_inverse_dark" = "#FFFFFF/0";
+

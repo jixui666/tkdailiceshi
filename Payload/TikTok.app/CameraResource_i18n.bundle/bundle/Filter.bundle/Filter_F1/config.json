@@ -1,0 +1,41 @@
+{
+    "ae_tool": "AmazingEditor",
+    "bALG_BACH_CONFIG": false,
+    "effect": {
+        "Link": [
+            {
+                "extra": {
+                    "composer_param": [
+                        {
+                            "default_value": 0.75,
+                            "key": "Filter_intensity",
+                            "max_value": 1.0,
+                            "name": "Filter_intensity"
+                        }
+                    ]
+                },
+                "path": "AmazingFeature/",
+                "rtShare": true,
+                "type": "AmazingFeature",
+                "zorder": 2000
+            }
+        ],
+        "coexistScene": {
+            "allowList": [
+                "*"
+            ]
+        },
+        "exclusiveScene": [
+            {
+                "coexistForSamePriority": true,
+                "priority": 1000,
+                "sceneKey": "Filter*",
+                "tagName": [
+                    "AmazingFeature/"
+                ]
+            }
+        ]
+    },
+    "name": "Editor_Sticker_Config_TAG_15faca0c-be61-11ed-bb86-42948667a5fd_grade_0_20230309195439",
+    "version": "10.1.0"
+}

@@ -1,0 +1,255 @@
+{
+  "flow": [
+    {
+      "id": "slogan_page"
+    },
+    {
+      "id": "server_delay"
+    },
+    {
+      "id": "smart_lock",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "store_region",
+          "value": "FR,DE,IT,HU,AT",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "need_smart_lock",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "keychain",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "need_keychain",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "skippable_login",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "login_page_shown",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "result": "not_run",
+          "name": "small_screen",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "result": "not_run",
+          "name": "smart_login_type",
+          "value": "6,7",
+          "operator": "not_in"
+        },
+        {
+          "result": "not_run",
+          "name": "login_status",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "result": "run",
+          "name": "store_region",
+          "value": "FR,DE,IT,HU,AT",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "require_login_strategy",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "age_gate",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "store_region",
+          "value": "FR,DE,IT,HU,AT",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "need_age_gate",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "login",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "login_page_shown",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "result": "not_run",
+          "name": "login_status",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "result": "run",
+          "name": "store_region",
+          "value": "FR,DE,IT,HU,AT",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "require_login_strategy",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "slogan_consent_box_page"
+    },
+    {
+      "id": "consent_box_page"
+    },
+    {
+      "id": "consent_box",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "dialog_show_page",
+          "value": "interest_list,content_language,app_language,swipe_up",
+          "operator": "not_in"
+        }
+      ]
+    },
+    {
+      "id": "push_popup",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "dialog_show_page",
+          "value": "interest_list,content_language,app_language,swipe_up",
+          "operator": "not_in"
+        }
+      ]
+    },
+    {
+      "id": "interest_list"
+    },
+    {
+      "id": "second_push_popup",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "dialog_show_page",
+          "value": "interest_list,content_language,app_language,swipe_up",
+          "operator": "not_in"
+        }
+      ]
+    },
+    {
+      "id": "content_language"
+    },
+    {
+      "id": "app_language",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "app_language",
+          "value": "EN",
+          "operator": "not_in"
+        },
+        {
+          "result": "not_run",
+          "name": "app_region",
+          "value": "MY",
+          "operator": "not_in"
+        }
+      ]
+    },
+    {
+      "id": "deep_link",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "deep_link_enable",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "privacy_for_teens"
+    },
+    {
+      "id": "ad_choice"
+    },
+    {
+      "id": "ad_subscription",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "did_empty",
+          "value": "1",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "free_trial",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "free_trail_status_check",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "swipe_up",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "app_id",
+          "value": "473824",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "private_account",
+          "value": "1",
+          "operator": "=="
+        }
+      ]
+    },
+    {
+      "id": "private_account",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "private_account",
+          "value": "0",
+          "operator": "=="
+        }
+      ]
+    }
+  ],
+  "forced_cover": false
+}

@@ -1,0 +1,217 @@
+{
+  "config": [
+    {
+      "id": "should_run",
+      "filters": [
+        {
+          "result": "not_run",
+          "name": "app_id",
+          "value": "473824",
+          "operator": "in"
+        },
+        {
+          "result": "not_run",
+          "name": "private_account",
+          "value": "1",
+          "operator": "=="
+        },
+        {
+          "name": "logic",
+          "result": "not_run",
+          "desc": "feed_ready && old_user, must not show",
+          "sub_filters": [
+            [
+              {
+                "name": "nuj_revamp_client_ab",
+                "operator": "in",
+                "value": "1,2"
+              },
+              {
+                "name": "feed_ready",
+                "operator": "not_in",
+                "value": "0"
+              },
+              {
+                "name": "old_user",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ]
+        }
+      ],
+      "fallback_result": "run"
+    },
+    {
+      "id": "btn_show_delay_time",
+      "fallback_result": "2000"
+    },
+    {
+      "id": "btn_show_by_click_screen",
+      "fallback_result": "true"
+    },
+    {
+      "id": "page_style",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "1",
+          "result": "revamp_v1"
+        },
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "2",
+          "result": "revamp_v2"
+        }
+      ],
+      "fallback_result": "online"
+    },
+    {
+      "id": "need_finding_content_guide",
+      "filters": [
+        {
+          "name": "logic",
+          "result": "true",
+          "sub_filters": [
+            [
+              {
+                "name": "nuj_revamp_client_ab",
+                "operator": "in",
+                "value": "1"
+              },
+              {
+                "name": "feed_ready",
+                "operator": "in",
+                "value": "0"
+              }
+            ]
+          ]
+        }
+      ],
+      "fallback_result": "false"
+    },
+    {
+      "id": "finding_page_auto_leave_time",
+      "fallback_result": "2000"
+    },
+    {
+      "id": "need_swipe_up_guide",
+      "filters": [
+        {
+          "name": "logic",
+          "result": "false",
+          "sub_filters": [
+            [
+              {
+                "name": "nuj_revamp_client_ab",
+                "operator": "in",
+                "value": "1"
+              },
+              {
+                "name": "old_user",
+                "operator": "==",
+                "value": "1"
+              }
+            ]
+          ]
+        },
+        {
+          "name": "logic",
+          "result": "true",
+          "sub_filters": [
+            [
+              {
+                "name": "nuj_revamp_client_ab",
+                "operator": "in",
+                "value": "2"
+              },
+              {
+                "name": "device_check_result",
+                "operator": "in",
+                "value": "2"
+              }
+            ]
+          ]
+        },
+        {
+          "name": "logic",
+          "result": "false",
+          "sub_filters": [
+            [
+              {
+                "name": "nuj_revamp_client_ab",
+                "operator": "in",
+                "value": "2"
+              },
+              {
+                "name": "device_check_result",
+                "operator": "in",
+                "value": "1"
+              },
+              {
+                "name": "feed_ready",
+                "operator": "not_in",
+                "value": "0"
+              }
+            ]
+          ]
+        }
+      ],
+      "fallback_result": "true"
+    },
+    {
+      "id": "swipe_page_auto_leave_time",
+      "fallback_result": "4500"
+    },
+    {
+      "id": "need_hop_hop",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "2",
+          "result": "true"
+        }
+      ],
+      "fallback_result": "false"
+    },
+    {
+      "id": "fade_out_anim_time",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "1,2",
+          "result": "500"
+        }
+      ],
+      "fallback_result": "350"
+    },
+    {
+      "id": "fade_out_anim_function",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "1,2",
+          "result": "easeInOutExpo"
+        }
+      ],
+      "fallback_result": "easeInOut"
+    },
+    {
+      "id": "need_generate_haptic_feedback",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "2",
+          "result": "true"
+        }
+      ],
+      "fallback_result": "false"
+    }
+  ]
+}

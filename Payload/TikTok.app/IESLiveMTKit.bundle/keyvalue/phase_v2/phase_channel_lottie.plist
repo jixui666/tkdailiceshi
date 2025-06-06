@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>gbl_drops_appearance.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_game_partnership_item_show.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_gift_gallery_gift_light.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_gift_gallery_gift_light_foreground.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_draw_no_back_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_items_strike_entrance_v2_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_items_strike_scoreBar_buff_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_items_strike_scoreBar_lightning_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_lose_no_back_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_lose_with_back_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_mvp_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>gbl_match_mvp_starlight.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_match_start_animation_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>gbl_match_win_no_back_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>gbl_match_win_with_back_perf_opt.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gbl_speed_gift_new_gifter_LTR.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>gift_gallery_user_profile_guide.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_audience_link_mic_panel_apply_lottie.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_audience_pause.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step1_dark.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step1_light.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step2_dark.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step2_light.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step3_dark.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_following_widget_step3_light.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>live_survey_background.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>liveroom_mt_swipe_up_guide_landscape.json</key>
+	<string>live_tiktok_wrap_phase_launch</string>
+	<key>liveroom_portal_entrance_pushinto.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+	<key>liveroom_portal_treasurebox_pushinto.json</key>
+	<string>live_tiktok_wrap_phase_preview</string>
+</dict>
+</plist>

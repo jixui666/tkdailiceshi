@@ -1,0 +1,27 @@
+{
+	"version":	"1.0",
+	"mode":	2,
+	"name":	"Editor_Sticker_Config_TAG_RbPbjd4c5cCdobKd2cAdydAv41Gc",
+	"nodes":	[{
+			"name":	"blit_0",
+			"type":	"blit",
+			"graphs":	[],
+			"config":	{
+				"size":	{
+					"width":	0,
+					"height":	0
+				},
+				"keyMaps":	{
+					"intParam":	{
+					},
+					"floatParam":	{
+					},
+					"stringParam":	{
+					},
+					"pathParam":	{
+					}
+				}
+			}
+		}],
+	"links":	[]
+}

@@ -1,0 +1,12 @@
+//link_tiktok_toast_failed_5
+"Couldn't link" = "リンクが停止されました";
+//link_tiktok_toast_failed_2
+"Couldn't link. You already linked Lemon8 to a TikTok account." = "リンクできませんでした。Lemon8はすでにTikTokのアカウントにリンクされています。";
+//link_tiktok_toast_failed_1
+"Couldn't link. You already linked TikTok to a Lemon8 account." = "リンクできませんでした。TikTokはすでにLemon8のアカウントにリンクされています。";
+//link_tiktok_toast_failed_5
+"Linking stopped" = "リンクが停止されました";
+//link_tiktok_toast_failed_6
+"Network error. Try again." = "ネットワークエラーです。もう一度お試しください。";
+//link_tiktok_toast_success
+"Your Lemon8 account was linked" = "Lemon8のアカウントをリンクしました";

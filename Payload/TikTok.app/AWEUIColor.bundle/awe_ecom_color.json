@@ -1,0 +1,322 @@
+{
+    "TtsAssistRedPrimary": {
+        "tl": "FFFF4C3A",
+        "td": "FFFF4C3A"
+    },
+    "TtsAssistRedSecondary": {
+        "tl": "BFFF4C3A",
+        "td": "BFFF4C3A"
+    },
+    "TtsAssistRedTertiary": {
+        "tl": "80FF4C3A",
+        "td": "80FF4C3A"
+    },
+    "TtsAssistRedQuaternary": {
+        "tl": "57FF4C3A",
+        "td": "57FF4C3A"
+    },
+    "TtsAssistRedLevel5": {
+        "tl": "1FFF4C3A",
+        "td": "1FFF4C3A"
+    },
+    "TtsAssistRedLevel6": {
+        "tl": "0FFF4C3A",
+        "td": "0FFF4C3A"
+    },
+    "TtsAssistRedLevel7": {
+        "tl": "0AFF4C3A",
+        "td": "0AFF4C3A"
+    },
+    "TtsAssistOrangeRedPrimary": {
+        "tl": "FFFE722C",
+        "td": "FFFE722C"
+    },
+    "TtsAssistOrangeRedSecondary": {
+        "tl": "BFFE722C",
+        "td": "BFFE722C"
+    },
+    "TtsAssistOrangeRedTertiary": {
+        "tl": "80FE722C",
+        "td": "80FE722C"
+    },
+    "TtsAssistOrangeRedQuaternary": {
+        "tl": "57FE722C",
+        "td": "57FE722C"
+    },
+    "TtsAssistOrangeRedLevel5": {
+        "tl": "1FFE722C",
+        "td": "1FFE722C"
+    },
+    "TtsAssistOrangeRedLevel6": {
+        "tl": "0FFE722C",
+        "td": "0FFE722C"
+    },
+    "TtsAssistOrangeRedLevel7": {
+        "tl": "0AFE722C",
+        "td": "0AFE722C"
+    },
+    "TtsAssistOrangePrimary": {
+        "tl": "FFFC9C0C",
+        "td": "FFFC9C0C"
+    },
+    "TtsAssistOrangeSecondary": {
+        "tl": "BFFC9C0C",
+        "td": "BFFC9C0C"
+    },
+    "TtsAssistOrangeTertiary": {
+        "tl": "80FC9C0C",
+        "td": "80FC9C0C"
+    },
+    "TtsAssistOrangeQuaternary": {
+        "tl": "57FC9C0C",
+        "td": "57FC9C0C"
+    },
+    "TtsAssistOrangeLevel5": {
+        "tl": "1FFC9C0C",
+        "td": "1FFC9C0C"
+    },
+    "TtsAssistOrangeLevel6": {
+        "tl": "0FFC9C0C",
+        "td": "0FFC9C0C"
+    },
+    "TtsAssistOrangeLevel7": {
+        "tl": "0AFC9C0C",
+        "td": "0AFC9C0C"
+    },
+    "TtsAssistYellowPrimary": {
+        "tl": "FFFACE15",
+        "td": "FFFACE15"
+    },
+    "TtsAssistYellowSecondary": {
+        "tl": "BFFACE15",
+        "td": "BFFACE15"
+    },
+    "TtsAssistYellowTertiary": {
+        "tl": "80FACE15",
+        "td": "80FACE15"
+    },
+    "TtsAssistYellowQuaternary": {
+        "tl": "57FACE15",
+        "td": "57FACE15"
+    },
+    "TtsAssistYellowLevel5": {
+        "tl": "1FFACE15",
+        "td": "1FFACE15"
+    },
+    "TtsAssistYellowLevel6": {
+        "tl": "0FFACE15",
+        "td": "0FFACE15"
+    },
+    "TtsAssistYellowLevel7": {
+        "tl": "0AFACE15",
+        "td": "0AFACE15"
+    },
+    "TtsAssistGreenPrimary": {
+        "tl": "FF0BE09B",
+        "td": "FF0BE09B"
+    },
+    "TtsAssistGreenSecondary": {
+        "tl": "BF0BE09B",
+        "td": "BF0BE09B"
+    },
+    "TtsAssistGreenTertiary": {
+        "tl": "800BE09B",
+        "td": "800BE09B"
+    },
+    "TtsAssistGreenQuaternary": {
+        "tl": "570BE09B",
+        "td": "570BE09B"
+    },
+    "TtsAssistGreenLevel5": {
+        "tl": "1F0BE09B",
+        "td": "1F0BE09B"
+    },
+    "TtsAssistGreenLevel6": {
+        "tl": "0F0BE09B",
+        "td": "0F0BE09B"
+    },
+    "TtsAssistGreenLevel7": {
+        "tl": "0A0BE09B",
+        "td": "0A0BE09B"
+    },
+    "TtsAssistCyanPrimary": {
+        "tl": "FF13C2C2",
+        "td": "FF13C2C2"
+    },
+    "TtsAssistCyanSecondary": {
+        "tl": "BF13C2C2",
+        "td": "BF13C2C2"
+    },
+    "TtsAssistCyanTertiary": {
+        "tl": "8013C2C2",
+        "td": "8013C2C2"
+    },
+    "TtsAssistCyanQuaternary": {
+        "tl": "5713C2C2",
+        "td": "5713C2C2"
+    },
+    "TtsAssistCyanLevel5": {
+        "tl": "1F13C2C2",
+        "td": "1F13C2C2"
+    },
+    "TtsAssistCyanLevel6": {
+        "tl": "0F13C2C2",
+        "td": "0F13C2C2"
+    },
+    "TtsAssistCyanLevel7": {
+        "tl": "0A13C2C2",
+        "td": "0A13C2C2"
+    },
+    "TtsAssistCobaltPrimary": {
+        "tl": "FF3D6AF2",
+        "td": "FF3D6AF2"
+    },
+    "TtsAssistCobaltSecondary": {
+        "tl": "BF3D6AF2",
+        "td": "BF3D6AF2"
+    },
+    "TtsAssistCobaltTertiary": {
+        "tl": "803D6AF2",
+        "td": "803D6AF2"
+    },
+    "TtsAssistCobaltQuaternary": {
+        "tl": "573D6AF2",
+        "td": "573D6AF2"
+    },
+    "TtsAssistCobaltLevel5": {
+        "tl": "1F3D6AF2",
+        "td": "1F3D6AF2"
+    },
+    "TtsAssistCobaltLevel6": {
+        "tl": "0F3D6AF2",
+        "td": "0F3D6AF2"
+    },
+    "TtsAssistCobaltLevel7": {
+        "tl": "0A3D6AF2",
+        "td": "0A3D6AF2"
+    },
+    "TtsAssistPurplePrimary": {
+        "tl": "FF5E39D0",
+        "td": "FF5E39D0"
+    },
+    "TtsAssistPurpleSecondary": {
+        "tl": "BF5E39D0",
+        "td": "BF5E39D0"
+    },
+    "TtsAssistPurpleTertiary": {
+        "tl": "805E39D0",
+        "td": "805E39D0"
+    },
+    "TtsAssistPurpleQuaternary": {
+        "tl": "575E39D0",
+        "td": "575E39D0"
+    },
+    "TtsAssistPurpleLevel5": {
+        "tl": "1F5E39D0",
+        "td": "1F5E39D0"
+    },
+    "TtsAssistPurpleLevel6": {
+        "tl": "0F5E39D0",
+        "td": "0F5E39D0"
+    },
+    "TtsAssistPurpleLevel7": {
+        "tl": "0A5E39D0",
+        "td": "0A5E39D0"
+    },
+    "TtsAssistPinkPrimary": {
+        "tl": "FFEB2F96",
+        "td": "FFEB2F96"
+    },
+    "TtsAssistPinkSecondary": {
+        "tl": "BFEB2F96",
+        "td": "BFEB2F96"
+    },
+    "TtsAssistPinkTertiary": {
+        "tl": "80EB2F96",
+        "td": "80EB2F96"
+    },
+    "TtsAssistPinkQuaternary": {
+        "tl": "57EB2F96",
+        "td": "57EB2F96"
+    },
+    "TtsAssistPinkLevel5": {
+        "tl": "1FEB2F96",
+        "td": "1FEB2F96"
+    },
+    "TtsAssistPinkLevel6": {
+        "tl": "0FEB2F96",
+        "td": "0FEB2F96"
+    },
+    "TtsAssistPinkLevel7": {
+        "tl": "0AEB2F96",
+        "td": "0AEB2F96"
+    },
+    "TtsMainPrimary": {
+        "tl": "FFFE2C55",
+        "td": "FFFF3B5C"
+    },
+    "TtsMainSecondary": {
+        "tl": "BFFE2C55",
+        "td": "BFFF3B5C"
+    },
+    "TtsMainTertiary": {
+        "tl": "80FE2C55",
+        "td": "80FF3B5C"
+    },
+    "TtsMainQuaternary": {
+        "tl": "57FE2C55",
+        "td": "57FF3B5C"
+    },
+    "TtsMainLevel5": {
+        "tl": "1FFE2C55",
+        "td": "1FFF3B5C"
+    },
+    "TtsMainLevel6": {
+        "tl": "0FFE2C55",
+        "td": "0FFF3B5C"
+    },
+    "TtsMainLevel7": {
+        "tl": "0AFE2C55",
+        "td": "0AFF3B5C"
+    },
+    "TtsPromoPromotionBg": {
+        "tl": "FFFFF2F5",
+        "td": "FF322528"
+    },
+    "TtsPromoPromotionBg2": {
+        "tl": "FFFFE6EB",
+        "td": "FF3F262B"
+    },
+    "TtsPromoPromotionLine": {
+        "tl": "FFFFDFE6",
+        "td": "FF592731"
+    },
+    "TtsPromoFlashsaleText": {
+        "tl": "FFFF5C21",
+        "td": "FFFF5C21"
+    },
+    "TtsPromoFlashsaleBg": {
+        "tl": "FFFFF2EE",
+        "td": "FF362925"
+    },
+    "TtsPromoFlashsaleLine": {
+        "tl": "FFFFE2D7",
+        "td": "FF4C2F24"
+    },
+    "TtsPromoShippingBg": {
+        "tl": "FFECFAFA",
+        "td": "FF243232"
+    },
+    "TtsPromoShippingBg2": {
+        "tl": "FFD9F5F5",
+        "td": "FF223E3E"
+    },
+    "TtsPromoShippingLine": {
+        "tl": "FFC6F0F0",
+        "td": "FF214B4B"
+    },
+    "TtsFunctionalImageMask": {
+        "tl": "05000000",
+        "td": "05000000"
+    }
+}

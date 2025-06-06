@@ -1,0 +1,13 @@
+
+//link_tiktok_toast_failed_5
+"Couldn't link" = "Couldn't link.";
+//link_tiktok_toast_failed_2
+"Couldn't link. You already linked Lemon8 to a TikTok account." = "Couldn't link. You already linked Lemon8 to a TikTok account.";
+//link_tiktok_toast_failed_1
+"Couldn't link. You already linked TikTok to a Lemon8 account." = "Couldn't link. You already linked TikTok to a Lemon8 account.";
+//link_tiktok_toast_failed_5
+"Linking stopped" = "Linking stopped.";
+//link_tiktok_toast_failed_6
+"Network error. Try again." = "Network error. Try again.";
+//link_tiktok_toast_success
+"Your Lemon8 account was linked" = "Your Lemon8 account was linked.";

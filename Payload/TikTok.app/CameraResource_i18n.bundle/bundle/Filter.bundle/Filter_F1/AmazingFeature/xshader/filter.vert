@@ -1,0 +1,11 @@
+// DO_NOT_PATCH_ME
+precision highp float;
+
+attribute vec2 attPosition;
+attribute vec2 attUV;
+varying vec2 textureCoordinate;
+void main() 
+{ 
+    gl_Position = vec4(attPosition.xy, 0.0, 1.0);
+    textureCoordinate = attUV.xy;
+}

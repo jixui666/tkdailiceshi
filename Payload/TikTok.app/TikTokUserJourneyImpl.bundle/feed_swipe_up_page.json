@@ -1,0 +1,22 @@
+{
+  "config": [
+    {
+      "id": "page_style",
+      "filters": [
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "0",
+          "result": "online"
+        },
+        {
+          "name": "nuj_revamp_client_ab",
+          "operator": "in",
+          "value": "1,2",
+          "result": "revamp"
+        }
+      ],
+      "fallback_result": "online"
+    }
+  ]
+}

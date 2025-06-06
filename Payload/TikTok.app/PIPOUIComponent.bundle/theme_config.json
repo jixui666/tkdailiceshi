@@ -1,0 +1,44 @@
+{
+    "themes": [
+      {
+        "theme": "light",
+        "variables": {
+          "colorPrimary": "#FE2C55",
+          "textPrimary": "#161823",
+          "primaryFontSize": 13,
+          "payButtonRadius": 4
+        }
+      },
+      {
+        "theme": "dark",
+        "variables": {
+            "colorPrimary": "#FE2C55",
+            "textPrimary": "#FFFFFFE5",
+            "primaryFontSize": 13,
+            "payButtonRadius": 4
+        }
+      },
+      {
+        "theme": "ttShopRed",
+        "variables": {
+            "colorPrimary": "#FF3355",
+            "textPrimary": "#161823",
+            "primaryFontSize": 13,
+            "payButtonRadius": 4
+        }
+      },
+      {
+        "theme": "lightWith8Radius",
+        "variables": {
+            "colorPrimary": "#165DFF",
+            "textPrimary": "#161823",
+            "primaryFontSize": 13,
+            "payButtonRadius": 8
+        }
+      }
+      
+    ],
+    "config": {
+      "displayName": "PIPO"
+    }
+  }

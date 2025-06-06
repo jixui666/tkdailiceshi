@@ -1,0 +1,12 @@
+//link_tiktok_toast_failed_5
+"Couldn't link" = "Penautan terhenti.";
+//link_tiktok_toast_failed_2
+"Couldn't link. You already linked Lemon8 to a TikTok account." = "Tidak dapat menautkan. Anda sudah menautkan Lemon8 ke akun TikTok.";
+//link_tiktok_toast_failed_1
+"Couldn't link. You already linked TikTok to a Lemon8 account." = "Tidak dapat menautkan. Anda sudah menautkan TikTok ke akun Lemon8.";
+//link_tiktok_toast_failed_5
+"Linking stopped" = "Penautan terhenti.";
+//link_tiktok_toast_failed_6
+"Network error. Try again." = "Kesalahan jaringan. Coba lagi.";
+//link_tiktok_toast_success
+"Your Lemon8 account was linked" = "Akun Lemon8 Anda telah ditautkan";

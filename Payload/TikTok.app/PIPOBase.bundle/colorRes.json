@@ -1,0 +1,54 @@
+{
+    "mainPrimary": {
+        "light": "fe2c55",
+        "dark": "fe2c55"
+    },
+    "bgPrimary": {
+        "light": "FFFFFF",
+        "dark": "252525"
+    },
+    "textMainPrimary": {
+        "light": "161823",
+        "dark": "FFFFFF"
+    },
+    "errorColor": {
+        "light": "FF4C3A",
+        "dark": "FFB4AB"
+    },
+    "lineSecondary": {
+        "light": "E5E6EB",
+        "dark": "FFFFFF"
+    },
+    "payResultPending": {
+        "light": "FA9200",
+        "dark": "FA9200"
+    },
+    "payResultFail": {
+        "light": "DE3730",
+        "dark": "DE3730"
+    },
+    "payResultSuccess": {
+        "light": "3E8644",
+        "dark": "3E8644"
+    },
+    "searchBarBackground": {
+        "light": "F1F1F2",
+        "dark": "F1F1F2"
+    },
+    "borederColor": {
+        "light": "E1E4EC",
+        "dark": "2F3138"
+    },
+    "toolTipsBackgroundColor": {
+        "light": "545454",
+        "dark": "545454"
+    },
+    "toolTipsTextColor": {
+        "light": "ffffff",
+        "dark": "ffffff"
+    },
+    "onSurfaceVariant": {
+        "light": "767980",
+        "dark": "C5C8D0"
+    }
+}

@@ -1,0 +1,112 @@
+// 
+//  tiktok_dark.strings
+// 
+//  Created by baojianjun on 2020/05/20.
+//  tiktok dark color standard
+// 
+
+// Brand Color			// 品牌色
+"brand"					=	"#FF3B5C/1.00";	/* 品牌色 */
+"brand-click"			=	"#FF3B5C/0.75";	/* 品牌色用作控件背景时的点击态颜色 */
+"brand-disable"			=	"#FFFFFF/0.08";	/* 品牌色用作控件背景时的禁用颜色 */
+"brand-gradient"		=	"#FF358D/1.00";	/* 品牌色的渐变色 */
+"tab"					=	"#FFFFFF/0.90";	/* 默认Tabbar组件 选中态下划线 */
+"progress"				=	"#20D5EC/1.00";	/* 音量调节条 */
+"badge"					=	"#FF3B5C/1.00";	/* 飘新提示（徽标） */
+
+// System Color			// 链接&错误提示&Toast颜色
+"link-1"				=	"#FF3B5C/1.00";	/* 常规功能、入口等文字链接 */
+"link-2"				=	"#FF3B5C/1.00";	/* 评论面板@处、白色场景下SUG高亮色 */
+"link-3"				=	"#FF3B5C/1.00";	/* 协议、公约类文字链 */
+"link-4"				=	"#FF3B5C/1.00";	/* 双模式下都为白色时使用协议、公约类文字链 */
+"success"				=	"#0BE09B/1.00";	/* 成功色 */
+"error"					=	"#FF4C3A/1.00";	/* 警告色 */
+"bg-toast"				=	"#545454/0.92";	/* Toast */
+"bg-tooltip"			=	"#00C6E9/1.00";	/* Tooltip（提示气泡） */
+
+// Text & Icon Color	// 文字&图标颜色
+"text-1"				=	"#FFFFFF/0.90";	/* 主要文本 */
+"text-2"				=	"#FFFFFF/0.75";	/* 长文本段落 */
+"text-3"				=	"#FFFFFF/0.50";	/* 次要文本 */
+"text-4"				=	"#FFFFFF/0.34";	/* 不可点击/提示使用/图标用色 */
+"text-5"				=	"#FFFFFF/0.34";	/* 按钮文字不可点击用色 */
+"text-white-1"			=	"#FFFFFF/1.00";	/* 永远是白色的主要文本 */
+"text-white-2"			=	"#FFFFFF/0.90";	/* 永远是白色的长文本段落 */
+"text-white-3"			=	"#FFFFFF/0.75";	/* 永远是白色的长文本段落 */
+"text-white-4"			=	"#FFFFFF/0.50";	/* 永远是白色的次要文本 */
+"text-white-5"			=	"#FFFFFF/0.34";	/* 永远是白色的不可点击文本 */
+"text-black-1"			=	"#161823/1.00";	/* 永远是黑色的主要文本 */
+"text-black-2"			=	"#161823/0.75";	/* 永远是黑色的长文本段落 */
+"text-black-3"			=	"#161823/0.50";	/* 永远是黑色的次要文本 */
+"text-black-4"			=	"#161823/0.34";	/* 永远是黑色的不可点击文本 */
+"text-disable"			=	"#FFFFFF/0.34";	/* 用于主按钮禁用时的文字颜色 */
+"text-tooltip"			=	"#FFFFFF/1.00";	/* 气泡文字颜色 */
+"text-modal-1"			=	"#FFFFFF/0.90";	/* 弹窗内文字用色 */
+"text-modal-2"			=	"#FFFFFF/0.75";	/* 弹窗内文字用色 */
+"text-modal-3"			=	"#FFFFFF/0.50";	/* 弹窗内文字用色 */
+"text-modal-4"			=	"#FFFFFF/0.34";	/* 弹窗内文字用色 */
+"text-modal-5"			=	"#FFFFFF/0.90";	/* 弹窗内文字用色 */
+
+// Line Color			// 分割线&描边颜色
+"line-1"				=	"#FFFFFF/0.20";	/* 一级分割线 */
+"line-2"				=	"#FFFFFF/0.12";	/* 二级分割线 */
+"line-3"				=	"#FFFFFF/0.08";	/* 三级分割线 */
+"line-button"			=	"#FFFFFF/0.00";	/* 次级按钮的描边 */
+"line-button-click"		=	"#FFFFFF/0.00";	/* 次级按钮点击状态下的描边 */
+"line-button-disable"	=	"#FFFFFF/0.00";	/* 次级按钮禁用状态下的描边 */
+"line-white-1"			=	"#FFFFFF/0.20";	/* 永远是白色的一级分割线 */
+"line-white-2"			=	"#FFFFFF/0.12";	/* 永远是白色的二级分割线 */
+"line-white-3"			=	"#FFFFFF/0.08";	/* 永远是白色的三级分割线 */
+"line-black-1"			=	"#161823/0.20";	/* 永远是黑色的一级分割线 */
+"line-black-2"			=	"#161823/0.12";	/* 永远是黑色的二级分割线 */
+"line-black-3"			=	"#161823/0.08";	/* 永远是黑色的三级分割线 */
+"line-modal"			=	"#FFFFFF/0.12";	/* 弹窗内分割线 */
+
+// Screen Dimming		// 蒙层颜色
+"mask-1"				=	"#000000/0.68";	/* 弹窗的蒙版遮罩 */
+"mask-2"				=	"#000000/0.80";	/* 用于上方显示文字的蒙层 */
+"mask-3"				=	"#000000/0.50";	/* 轻蒙层，视频上方标签 */
+"mask-4"				=	"#000000/0.00";	/* 渐变蒙层使用 */
+"mask-5"				=	"#FFFFFF/0.00";	/* 渐变蒙层使用 */
+"mask-6"				=	"#2E2E2E/0.50";	/* 选择器渐变蒙层 */
+"mask-7"				=	"#2E2E2E/1.00";	/* 选择器渐变蒙层 */
+
+// Background Color		// 背景颜色
+"bg-primary-1"			=	"#121212/1.00";	/* 一级背景色 */
+"bg-primary-2"			=	"#FFFFFF/0.04";	/* 二级背景用色，个人页、同城、IM背景用色 */
+"bg-primary-black"		=	"#161823/1.00";	/* 始终为深色的背景色, 如关播页 */
+"bg-primary-white"		=	"#FFFFFF/1.00";	/* 始终为浅色的背景色, 如关播页 */
+"bg-button-fill"		=	"#FFFFFF/0.12";	/* 次级按钮背景色 */
+"bg-1"					=	"#FFFFFF/0.12";	/* 搜索框 */
+"bg-2"					=	"#FFFFFF/0.08";	/* 加载占位色&Cell点击色&标签背景色 */
+"bg-3"					=	"#FFFFFF/0.08";	/* 列表按压色&卡片色&标签背景色 */
+"bg-4"					=	"#FFFFFF/0.03";	/* 面板中极浅的背景 */
+"bg-white-1"			=	"#FFFFFF/0.03";	/* 用于始终为深色的页面的卡片 */
+"bg-white-2"			=	"#FFFFFF/0.05";	/* 用于始终为深色的页面的卡片 */
+"bg-black-1"			=	"#161823/0.03";	/* 用于始终为浅色的页面的卡片 */
+"bg-black-2"			=	"#161823/0.05";	/* 用于始终为浅色的页面的卡片、搜索框背景色 */
+"bg-overlay"			=	"#2E2E2E/1.00";	/* 浮层背景 (如弹窗、白色面板） */
+"bg-brand"				=	"#FE2C55/0.05";	/* 商业化红色标签背景色 */
+"bg-border"				=	"#FE2C55/0.34";	/* 商业化红色标签描边 */
+"bg-live-iOS"			=	"#000000/0.75";	/* 直播间半屏面板（iOS） */
+"bg-live-android"		=	"#121212/1.00";	/* 直播间半屏面板（android） */
+"bg-live-wall"			=	"#000000/0.20";	/* 直播间内元素底板 */
+"bg-button-disable"		=	"#FFFFFF/0.04";	/* 次级按钮禁用背景色 */
+"bg-inverse"			=	"#000000/1.00";	/* 图片、视频背景 */
+"bg-inverse2"			=	"#000000/0.60";	/* 视图场景面板用色（分享面板、评论面板、工具线面板场景使用） */
+"bg-inverse3"			=	"#252525/0.60";	/* 视图场景面板用色 */
+"bg-view"				=	"#FFFFFF/0.04";	/* 极端区分背景色（沟壑） */
+"bg-bar"				=	"#252525/1.00";	/* 底bar用色/TT */
+"bg-creation"			=	"#121212/1.00";	/* 工具全屏页面（拍摄等）背景色 */
+"bg-creation2"			=	"#1B1B1B/1.00";	/* 工具面板用色 */
+
+// Background Color		// 特殊场景色
+"switch-ios-onbg"		=	"#67DCA0/1.00";	/* iOS开关的on底色 */
+"switch-ios-on"			=	"#FFFFFF/1.00";	/* iOS开关的on滑杆色 */
+"switch-ios-offbg"		=	"#FFFFFF/0.34";	/* iOS开关的off底色 */
+"switch-ios-off"		=	"#FFFFFF/0.85";	/* iOS开关的off滑杆色 */
+"switch-android-onbg"	=	"#67DCA0/0.50";	/* 安卓开关的on底色 */
+"switch-android-on"		=	"#67DCA0/1.00";	/* 安卓开关的on滑杆色 */
+"switch-android-offbg"	=	"#FFFFFF/0.34";	/* 安卓开关的off底色 */
+"switch-android-off"	=	"#DCDCDE/1.00";	/* 安卓开关的off滑杆色 */
+"bg-actionsheet"		=	"#161823/0.05";	/* 动作菜单用 */

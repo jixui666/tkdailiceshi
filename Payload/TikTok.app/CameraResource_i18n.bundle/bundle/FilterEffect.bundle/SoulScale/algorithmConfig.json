@@ -1,0 +1,26 @@
+{
+	"version":	"1.0",
+	"mode":	2,
+	"name":	"GESticker_SkinNeedling",
+	"nodes":	[{
+			"name":	"blit_0",
+			"type":	"blit",
+			"config":	{
+				"size":	{
+					"width":	0,
+					"height":	0
+				},
+				"keyMaps":	{
+					"intParam":	{
+					},
+					"floatParam":	{
+					},
+					"stringParam":	{
+					},
+					"pathParam":	{
+					}
+				}
+			}
+		}],
+	"links":	[]
+}

@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "mode": 2,
+  "name": "AlgorithmGraph_ecRgUcf7dhb9dzco8d9bfb5dccWd",
+  "size": {
+    "width": 1080,
+    "height": 1920
+  },
+  "nodes": [
+    {
+      "name": "blit_0",
+      "type": "blit",
+      "config": {
+        "keyMaps": {
+          "intParam": {},
+          "floatParam": {},
+          "stringParam": {},
+          "pathParam": {}
+        }
+      }
+    },
+    {
+      "name": "enigma",
+      "type": "enigma",
+      "config": {
+        "keyMaps": {
+          "intParam": {
+            "enigma_scan_mode": 0,
+            "enigma_run_mode": 0,
+            "enigma_enhance_camera": 1,
+            "enigma_auto_zoom_in": 0,
+            "enigma_code_type": 3,
+            "enigma_enable_rf": 1,
+            "enigma_call_type": 0
+          },
+          "floatParam": {},
+          "stringParam": {}
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "fromNode": "blit_0",
+      "fromIndex": 0,
+      "toNode": "enigma",
+      "toIndex": 0
+    }
+  ]
+}

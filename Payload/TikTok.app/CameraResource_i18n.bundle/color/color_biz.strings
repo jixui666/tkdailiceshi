@@ -1,0 +1,9 @@
+"acc.sticker_title_view_cell.image.background" = "@color/acc_ui_color_const_text_inverse4";
+"acc.sticker_title_view_cell.title.unselect" = "@color/acc_ui_color_const_text_inverse4";
+"acc.sticker_title_view_cell.image.unselect" = "@color/acc_ui_color_bg_container7";
+"acc_sound_effect_panel_label_color" = "@color/acc_ui_color_const_text_inverse3";
+"awe.studio.video.progress.tint.color" = "@color/acc_ui_color_secondary";
+"awe.audio.clip.start.barview.draw.color" = "@color/acc_color_secondary";
+"awe.slider.minimum.track.tint.color" = "@color/acc_ui_color_text_primary";
+"awe.matting.cell.indicator.border.color" = "@color/acc_ui_color_primary";
+"acc.video.audio.slider.progress.tint.color" = "@color/acc_ui_color_secondary";

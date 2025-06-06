@@ -1,0 +1,771 @@
+{
+  "project": "hybrid_prefetch",
+  "rules": {
+    "/view/fe_tiktok_ecommerce_chat/h5/main.html": {
+      "prefetch_apis": [
+        "ecommerce_chat_init"
+      ],
+      "query": [
+        {
+          "key": "source"
+        }
+      ]
+    },
+    "/obj/byte-gurd-source-sg/tiktok/fe/live/tiktok_live_ecommerce_tts_shop_center/pages/shop-center/template.js": {
+      "prefetch_apis": [
+        "ec_order_center"
+      ]
+    },
+    "/ies-cdn-alisg/tiktok_activities/covid19/pages/coronavirus/": {
+      "prefetch_apis": [
+        "covid_19"
+      ]
+    },
+    "/inapp/guardian/parent/main": {
+      "prefetch_apis": [
+        "get_guardian_parent_info"
+      ]
+    },
+    "/reactlynx_talent_live_showcase/app/template.js": {
+      "prefetch_apis": [
+        "creator_shopping_assemble",
+        "creator_shopping_start"
+      ]
+    },
+    "/tea_creator_center/app/template.js": {
+      "prefetch_apis": [
+        "ec_creator_center"
+      ]
+    },
+    "/tea_promotion_page/app/template.js": {
+      "prefetch_apis": [
+        "ec_promotion_page_app"
+      ]
+    },
+    "/tea_selection_page/homepage/template.js": {
+      "prefetch_apis": [
+        "ec_selection_page_homepage"
+      ]
+    },
+    "/tea_selection_page/collection/template.js": {
+      "prefetch_apis": [
+        "ec_selection_page_collection"
+      ]
+    },
+    "/tea_selection_page/products/template.js": [
+      {
+        "prefetch_apis": [
+          "ec_selection_page_products_search"
+        ],
+        "query": [
+          {
+            "key": "category_id"
+          },
+          {
+            "key": "search_type"
+          }
+        ]
+      },
+      {
+        "prefetch_apis": [
+          "ec_selection_page_products_selling"
+        ],
+        "query": [
+          {
+            "key": "products_page_type",
+            "value": "^[12]$"
+          }
+        ]
+      }
+    ],
+    "/tea_selection_page/url-add-product/template.js": {
+      "prefetch_apis": [
+        "ec_selection_page_url"
+      ]
+    },
+    "/tea_inbox/app/template.js": {
+      "prefetch_apis": [
+        "ec_inbox_app"
+      ]
+    },
+    "/tea_store_manage/app/template.js": [
+      {
+        "prefetch_apis": [
+          "ec_store_manage_app_live_1"
+        ],
+        "query": [
+          {
+            "key": "source_page_type",
+            "value": "live"
+          },
+          {
+            "key": "room_id"
+          }
+        ]
+      },
+      {
+        "prefetch_apis": [
+          "ec_store_manage_app_live_2"
+        ],
+        "query": [
+          {
+            "key": "source_page_type",
+            "value": "live"
+          },
+          {
+            "key": "roomId"
+          }
+        ]
+      },
+      {
+        "prefetch_apis": [
+          "ec_store_manage_app_live_3"
+        ],
+        "query": [
+          {
+            "key": "source_page_type",
+            "value": "live"
+          }
+        ]
+      },
+      {
+        "prefetch_apis": [
+          "ec_store_manage_app_anchor"
+        ],
+        "query": [
+          {
+            "key": "source_page_type",
+            "value": "video"
+          }
+        ]
+      },
+      {
+        "prefetch_apis": [
+          "ec_store_manage_app_shop"
+        ]
+      }
+    ],
+    "/tea_store_manage/cover/template.js": {
+      "prefetch_apis": [
+        "ec_store_manage_cover"
+      ]
+    },
+    "/goofy/ies/resource/falcon/2021_08_battle_for_treasure/pages/home/index.html": {
+      "prefetch_apis": [
+        "2021_08_battle_for_treasure_aggregate_meta",
+        "2021_08_battle_for_treasure_aggregate_meta_va"
+      ]
+    },
+    "/goofy/ies/resource/falcon/2021_09_gem_trek_mission/pages/home/index.html": {
+      "prefetch_apis": [
+        "2021_09_gem_trek_mission_aggregate_meta",
+        "2021_09_gem_trek_mission_aggregate_meta_va"
+      ]
+    },
+    "/obj/byte-gurd-source-sg/tiktok/fe/live/tiktok_live_new_user_deal_page_ttf/pages/new_user_deal_page.js": {
+      "prefetch_apis": [
+        "ec_get_new_user_feed_ttf"
+      ],
+      "query": [
+        {
+          "key": "activity_code"
+        },
+        {
+          "key": "session_id"
+        },
+        {
+          "key": "top_product_ids"
+        },
+        {
+          "key": "tab"
+        },
+        {
+          "key": "from_scene"
+        }
+      ]
+    }
+  },
+  "prefetch_apis": {
+    "ecommerce_chat_init": {
+      "url": "https://oec-api.tiktokv.com/chat/api/buyer/getInitData",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 10,
+      "params": {
+        "PIGEON_BIZ_TYPE": {
+          "type": "static",
+          "value": 1
+        },
+        "outerShopId": {
+          "type": "query",
+          "value": "shopId"
+        },
+        "productId": {
+          "type": "query",
+          "value": "productId"
+        },
+        "orderId": {
+          "type": "query",
+          "value": "orderId"
+        },
+        "source": {
+          "type": "query",
+          "value": "source"
+        }
+      }
+    },
+    "ec_order_center": {
+      "url": "https://oec-api.tiktokv.com/api/v1/trade/order_center/get",
+      "method": "POST",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 5,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "data": {
+        "experiment_version": {
+          "type": "query",
+          "value": "experiment_version"
+        }
+      }
+    },
+    "ec_get_new_user_feed_ttf": {
+      "url": "https://oec-api.tiktokv.com/api/v1/ttf_mall/new_user_exclusive_deal/get",
+      "method": "POST",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 10,
+      "params": {
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "mode": {
+          "type": "static",
+          "value": 1
+        },
+        "size": {
+          "type": "static",
+          "value": 10
+        },
+        "request_type": {
+          "type": "static",
+          "value": 0
+        },
+        "activity_code": {
+          "type": "query",
+          "value": "activity_code"
+        },
+        "session_id": {
+          "type": "query",
+          "value": "session_id"
+        },
+        "product_id_list_str": {
+          "type": "query",
+          "value": "top_product_ids"
+        },
+        "tab": {
+          "type": "query",
+          "value": "tab"
+        },
+        "from_scene": {
+          "type": "query",
+          "value": "from_scene"
+        }
+      }
+    },
+    "ec_store_manage_app_shop": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/selection_pool/home/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "sub_tab": {
+          "type": "static",
+          "value": 1
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "page": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "request_from": {
+          "type": "static",
+          "value": 0
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "ec_store_manage_app_live_1": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/selection_pool/home/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "sub_tab": {
+          "type": "static",
+          "value": 1
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "page": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "request_from": {
+          "type": "static",
+          "value": 1
+        },
+        "room_id": {
+          "type": "query",
+          "value": "room_id"
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "ec_store_manage_app_live_2": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/selection_pool/home/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "sub_tab": {
+          "type": "static",
+          "value": 1
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "page": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "request_from": {
+          "type": "static",
+          "value": 1
+        },
+        "room_id": {
+          "type": "query",
+          "value": "roomId"
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "ec_store_manage_app_live_3": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/selection_pool/home/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "sub_tab": {
+          "type": "static",
+          "value": 1
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "page": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "request_from": {
+          "type": "static",
+          "value": 1
+        },
+        "room_id": {
+          "type": "static",
+          "value": "0"
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "ec_store_manage_app_anchor": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/selection_pool/home/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "sub_tab": {
+          "type": "static",
+          "value": 1
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "page": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "request_from": {
+          "type": "static",
+          "value": 2
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "ec_store_manage_cover": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/showcase/product/pack/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "product_ids": {
+          "type": "query",
+          "value": "product_id"
+        }
+      }
+    },
+    "ec_selection_page_products_search": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/oec/affiliate/selection/search",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "search_type": {
+          "type": "query",
+          "value": "search_type"
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "platform": {
+          "type": "static",
+          "value": 0
+        },
+        "keyword": {
+          "type": "static",
+          "value": ""
+        },
+        "category_id": {
+          "type": "query",
+          "value": "category_id"
+        }
+      }
+    },
+    "ec_selection_page_products_selling": {
+      "url": "https://oec-api.tiktokv.com/api/v1/oec/affiliate/ranking/best_selling/get",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        },
+        "type": {
+          "type": "query",
+          "value": "products_page_type"
+        }
+      }
+    },
+    "ec_inbox_app": {
+      "url": "https://oec-api.tiktokv.com/api/v1/creator_notify/message/get",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "message_id": {
+          "type": "query",
+          "value": "message_id"
+        },
+        "type": {
+          "type": "query",
+          "value": "type"
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "page_size": {
+          "type": "static",
+          "value": 20
+        },
+        "version": {
+          "type": "static",
+          "value": 1
+        }
+      }
+    },
+    "ec_selection_page_url": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/i18nshop/showcase/link_add_currency_unit/",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {}
+    },
+    "ec_selection_page_collection": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/oec/affiliate/selection/page",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "page_id": {
+          "type": "query",
+          "value": "page_id"
+        },
+        "cursor": {
+          "type": "static",
+          "value": 0
+        },
+        "cursor_v2": {
+          "type": "static",
+          "value": 0
+        },
+        "count": {
+          "type": "static",
+          "value": 20
+        }
+      }
+    },
+    "ec_selection_page_homepage": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/oec/affiliate/selection/center",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "search_id": {
+          "type": "query",
+          "value": "search_id"
+        }
+      }
+    },
+    "ec_promotion_page_app": {
+      "url": "https://oec-api.tiktokv.com/api/v1/affiliate/product_detail/get",
+      "method": "POST",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "product_id": {
+          "type": "query",
+          "value": "product_id"
+        },
+        "source_page_id": {
+          "type": "query",
+          "value": "page_id"
+        }
+      }
+    },
+    "ec_creator_center": {
+      "url": "https://oec-api.tiktokv.com/api/v1/affiliate/ecommerce_center/get",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {}
+    },
+    "creator_shopping_start": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/oec/affiliate/creator/live/start",
+      "method": "POST",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "room_id": {
+          "type": "query",
+          "value": "room_id"
+        }
+      }
+    },
+    "creator_shopping_assemble": {
+      "url": "https://oec-api.tiktokv.com/aweme/v1/oec/bag/creator/assemble",
+      "method": "GET",
+      "independent": false,
+      "needCommonParams": true,
+      "expire": 3,
+      "params": {
+        "room_id": {
+          "type": "query",
+          "value": "room_id"
+        },
+        "is_owner": {
+          "type": "static",
+          "value": "true"
+        },
+        "kol_id": {
+          "type": "query",
+          "value": "moderate_author_id"
+        }
+      }
+    },
+    "covid_19": {
+      "url": "https://www.tiktok.com/web/api/ncov/v2/",
+      "method": "GET",
+      "independent": false,
+      "expire": 50,
+      "params": {
+        "av": {
+          "type": "query",
+          "value": "av"
+        }
+      }
+    },
+    "get_guardian_parent_info": {
+      "url": "https://api.tiktokv.com/aweme/v1/guardian/platform/children/info/",
+      "method": "GET",
+      "independent": false,
+      "expire": 10,
+      "params": {}
+    },
+    "2021_08_battle_for_treasure_aggregate_meta": {
+      "url": "https://webcast.tiktokv.com/webcast/activity/meta/",
+      "method": "GET",
+      "independent": false,
+      "params": {
+        "activity": {
+          "type": "query",
+          "value": "activity_name"
+        },
+        "use_cache": {
+          "type": "static",
+          "value": true
+        },
+        "anchor_id": {
+          "type": "query",
+          "value": "anchor_id"
+        },
+        "sec_anchor_id": {
+          "type": "query",
+          "value": "sec_anchor_id"
+        }
+      }
+    },
+    "2021_08_battle_for_treasure_aggregate_meta_va": {
+      "url": "https://webcast-va.tiktokv.com/webcast/activity/meta/",
+      "method": "GET",
+      "independent": false,
+      "params": {
+        "activity": {
+          "type": "query",
+          "value": "activity_name"
+        },
+        "use_cache": {
+          "type": "static",
+          "value": true
+        },
+        "anchor_id": {
+          "type": "query",
+          "value": "anchor_id"
+        },
+        "sec_anchor_id": {
+          "type": "query",
+          "value": "sec_anchor_id"
+        }
+      }
+    },
+    "2021_09_gem_trek_mission_aggregate_meta": {
+      "url": "https://webcast.tiktokv.com/webcast/activity/meta/",
+      "method": "GET",
+      "independent": false,
+      "expire": 10,
+      "params": {
+        "activity": {
+          "type": "query",
+          "value": "activity_name"
+        },
+        "use_cache": {
+          "type": "static",
+          "value": true
+        },
+        "anchor_id": {
+          "type": "query",
+          "value": "anchor_id"
+        },
+        "sec_anchor_id": {
+          "type": "query",
+          "value": "sec_anchor_id"
+        }
+      }
+    },
+    "2021_09_gem_trek_mission_aggregate_meta_va": {
+      "url": "https://webcast-va.tiktokv.com/webcast/activity/meta/",
+      "method": "GET",
+      "independent": false,
+      "expire": 10,
+      "params": {
+        "activity": {
+          "type": "query",
+          "value": "activity_name"
+        },
+        "use_cache": {
+          "type": "static",
+          "value": true
+        },
+        "anchor_id": {
+          "type": "query",
+          "value": "anchor_id"
+        },
+        "sec_anchor_id": {
+          "type": "query",
+          "value": "sec_anchor_id"
+        }
+      }
+    }
+  }
+}

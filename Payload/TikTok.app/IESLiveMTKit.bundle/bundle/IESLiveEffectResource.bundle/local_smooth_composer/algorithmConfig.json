@@ -1,0 +1,46 @@
+{
+	"version":	"1.0",
+	"mode":	2,
+	"name":	"AlgorithmGraph_106",
+	"nodes":	[{
+			"name":	"blit_0",
+			"type":	"blit",
+			"config":	{
+				"size":	{
+					"width":	128,
+					"height":	224
+				},
+				"keyMaps":	{
+					"intParam":	{
+					},
+					"floatParam":	{
+					},
+					"stringParam":	{
+					},
+					"pathParam":	{
+					}
+				}
+			}
+		}, {
+			"name":	"face_0",
+			"type":	"face",
+			"config":	{
+				"keyMaps":	{
+					"intParam":	{
+					},
+					"floatParam":	{
+					},
+					"stringParam":	{
+					},
+					"pathParam":	{
+					}
+				}
+			}
+		}],
+	"links":	[{
+			"fromNode":	"blit_0",
+			"fromIndex":	0,
+			"toNode":	"face_0",
+			"toIndex":	0
+		}]
+}

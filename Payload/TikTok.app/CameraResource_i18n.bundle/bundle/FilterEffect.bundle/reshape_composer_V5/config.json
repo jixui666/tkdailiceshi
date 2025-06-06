@@ -1,0 +1,58 @@
+{
+	"ae_tool" : "AmazingEditor",
+	"bALG_BACH_CONFIG" : true,
+	"effect" : 
+	{
+		"Link": [
+		  {
+			"exclusiveScene": [
+			  {
+				"sceneKey": "FaceDeformation/Eye",
+				"tagName": [
+				  "DISTORTION_V3_NEW_QINGYAN_ZOOM_EYE"
+				],
+				"composerKey": [
+				  "Eye_ALL"
+				],
+				"priority": 1000
+			  },
+			  {
+				"sceneKey": "FaceDeformation/Face",
+				"tagName": [
+				  "DISTORTION_V3_NEW_QINGYAN_FAR_EYE",
+				  "DISTORTION_V3_NEW_QINGYAN_ZOOM_FACE",
+				  "DISTORTION_V3_NEW_QINGYAN_SMALL_FACE",
+				  "DISTORTION_V3_NEW_QINGYAN_TEMPLE"
+				],
+				"composerKey": [
+				  "Face_ALL"
+				],
+				"priority": 1000
+			  }
+			],
+			"type": "FaceReshapeAmazingFeature",
+			"zorder": 3000,
+			"path": "AmazingFeature/",
+			"extra": {
+			  "composer_param": [
+				{
+				  "name": "eye",
+				  "key": "Eye_ALL",
+				  "default_value": 0.0,
+				  "allow_negative": true
+				},
+				{
+				  "name": "face",
+				  "key": "Face_ALL",
+				  "default_value": 0.0,
+				  "allow_negative": true
+				}
+			   
+			  ]
+			}
+		  }
+		]
+	},
+	"name" : "TTLive_Builtin_amazing_distortion_v5_0523",
+	"version" : "10.1.0"
+}
