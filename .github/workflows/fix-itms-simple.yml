@@ -70,7 +70,7 @@ def fix_info_plist():
             plist_data = plistlib.load(f)
         
         current_version = plist_data.get('MinimumOSVersion', '未设置')
-        print(f'当前MinimumOSVersion: {current_version}')
+        print('当前MinimumOSVersion: ' + str(current_version))
         
         plist_data['MinimumOSVersion'] = '14.0'
         
@@ -81,7 +81,7 @@ def fix_info_plist():
         return True
         
     except Exception as e:
-        print(f'❌ 处理Info.plist失败: {e}')
+        print('❌ 处理Info.plist失败: ' + str(e))
         return False
 
 if __name__ == '__main__':
