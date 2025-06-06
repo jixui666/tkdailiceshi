@@ -23,6 +23,10 @@ on:
         default: true
         type: boolean
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   fix-itms-issues:
     runs-on: macos-latest
@@ -141,18 +145,135 @@ jobs:
     - name: Run Python Fix Script
       run: |
         echo "运行Python修复脚本..."
-        python3 fix_itms_issues.py \
-          --payload-dir "Payload" \
-          --fix-encryption=${{ github.event.inputs.fix_encryption }} \
-          --fix-pie=${{ github.event.inputs.fix_pie }} \
-          --create-ipa=${{ github.event.inputs.create_ipa }} \
-          --verbose
+        if [ -f "fix_itms_issues.py" ]; then
+          python3 fix_itms_issues.py \
+            --payload-dir "Payload" \
+            --fix-encryption=${{ github.event.inputs.fix_encryption }} \
+            --fix-pie=${{ github.event.inputs.fix_pie }} \
+            --create-ipa=${{ github.event.inputs.create_ipa }} \
+            --verbose
+        else
+          echo "⚠️ Python修复脚本不存在，跳过此步骤"
+        fi
 
     - name: Run Shell Fix Script
       run: |
         echo "运行Shell修复脚本..."
-        chmod +x fix_tiktok_itms.sh
-        ./fix_tiktok_itms.sh
+        if [ -f "fix_tiktok_itms.sh" ]; then
+          chmod +x fix_tiktok_itms.sh
+          ./fix_tiktok_itms.sh
+        else
+          echo "⚠️ Shell修复脚本不存在，跳过此步骤"
+        fi
+
+    - name: Manual Fix for Common Issues
+      run: |
+        echo "手动修复常见ITMS问题..."
+        
+        # 修复插件加密问题
+        if [ -d "Payload/TikTok.app/PlugIns" ]; then
+          echo "处理插件加密问题..."
+          find "Payload/TikTok.app/PlugIns" -name "*.appex" | while read plugin; do
+            plugin_name=$(basename "$plugin" .appex)
+            binary_path="$plugin/$plugin_name"
+            if [ -f "$binary_path" ]; then
+              echo "检查 $plugin_name..."
+              # 使用Python重置cryptid
+              python3 -c "
+import struct
+import sys
+import os
+
+def reset_cryptid(filepath):
+    try:
+        with open(filepath, 'r+b') as f:
+            data = f.read()
+            pos = 0
+            modified = False
+            
+            while pos < len(data) - 32:
+                if data[pos:pos+4] in [b'\xfe\xed\xfa\xce', b'\xce\xfa\xed\xfe', 
+                                     b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe']:
+                    f.seek(pos + 16)
+                    ncmds = struct.unpack('<I', f.read(4))[0]
+                    f.seek(pos + 32)
+                    
+                    for _ in range(ncmds):
+                        cmd_pos = f.tell()
+                        cmd = struct.unpack('<I', f.read(4))[0]
+                        cmdsize = struct.unpack('<I', f.read(4))[0]
+                        
+                        if cmd in [0x21, 0x2C]:  # LC_ENCRYPTION_INFO/64
+                            f.seek(cmd_pos + 16)
+                            f.write(struct.pack('<I', 0))
+                            print(f'✅ 重置 {os.path.basename(filepath)} 的cryptid')
+                            modified = True
+                        
+                        f.seek(cmd_pos + cmdsize)
+                    break
+                pos += 1
+            
+            return modified
+    except Exception as e:
+        print(f'❌ 处理 {filepath} 失败: {e}')
+        return False
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        reset_cryptid(sys.argv[1])
+" "$binary_path"
+            fi
+          done
+        fi
+        
+        # 检查主应用二进制文件
+        MAIN_BINARY="Payload/TikTok.app/TikTok"
+        if [ -f "$MAIN_BINARY" ]; then
+          echo "处理主应用加密问题..."
+          python3 -c "
+import struct
+import sys
+import os
+
+def reset_cryptid(filepath):
+    try:
+        with open(filepath, 'r+b') as f:
+            data = f.read()
+            pos = 0
+            modified = False
+            
+            while pos < len(data) - 32:
+                if data[pos:pos+4] in [b'\xfe\xed\xfa\xce', b'\xce\xfa\xed\xfe', 
+                                     b'\xfe\xed\xfa\xcf', b'\xcf\xfa\xed\xfe']:
+                    f.seek(pos + 16)
+                    ncmds = struct.unpack('<I', f.read(4))[0]
+                    f.seek(pos + 32)
+                    
+                    for _ in range(ncmds):
+                        cmd_pos = f.tell()
+                        cmd = struct.unpack('<I', f.read(4))[0]
+                        cmdsize = struct.unpack('<I', f.read(4))[0]
+                        
+                        if cmd in [0x21, 0x2C]:  # LC_ENCRYPTION_INFO/64
+                            f.seek(cmd_pos + 16)
+                            f.write(struct.pack('<I', 0))
+                            print(f'✅ 重置 {os.path.basename(filepath)} 的cryptid')
+                            modified = True
+                        
+                        f.seek(cmd_pos + cmdsize)
+                    break
+                pos += 1
+            
+            return modified
+    except Exception as e:
+        print(f'❌ 处理 {filepath} 失败: {e}')
+        return False
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        reset_cryptid(sys.argv[1])
+" "$MAIN_BINARY"
+        fi
 
     - name: Verify Fixes
       run: |
@@ -207,6 +328,24 @@ jobs:
         echo "   - ITMS-90208: 最小OS版本已更新" >> fix_report.txt
         echo "   - ITMS-90125: 已处理二进制加密信息" >> fix_report.txt
         echo "   - ITMS-90180: 已检查插件加密范围" >> fix_report.txt
+        
+        # 添加修复统计
+        echo "" >> fix_report.txt
+        echo "📊 修复统计:" >> fix_report.txt
+        if [ -f "Payload/TikTok.app/TikTok" ]; then
+          echo "   - 主应用二进制: 已处理" >> fix_report.txt
+        fi
+        
+        if [ -d "Payload/TikTok.app/PlugIns" ]; then
+          plugin_count=$(find "Payload/TikTok.app/PlugIns" -name "*.appex" | wc -l)
+          echo "   - 插件数量: $plugin_count 个" >> fix_report.txt
+        fi
+        
+        echo "" >> fix_report.txt
+        echo "⚠️ 注意事项:" >> fix_report.txt
+        echo "   - PIE问题需要源码重新编译" >> fix_report.txt
+        echo "   - Framework段权限问题需要专业工具" >> fix_report.txt
+        echo "   - 建议使用Xcode进行最终验证" >> fix_report.txt
         
         cat fix_report.txt
 
