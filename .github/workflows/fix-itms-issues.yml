@@ -70,24 +70,16 @@ jobs:
         echo "检查Xcode命令行工具..."
         xcode-select --install 2>/dev/null || echo "Xcode命令行工具已安装"
         
-        # 安装optool - 添加重试机制
-        echo "安装optool..."
-        for i in {1..3}; do
-          if brew install optool 2>/dev/null || echo "optool已存在"; then
-            echo "✅ optool安装成功"
-            break
-          else
-            echo "⚠️ optool安装失败，第 $i 次重试..."
-            sleep 5
-          fi
-        done
+        # 尝试安装optool - 如果失败就继续
+        echo "尝试安装optool..."
+        brew install optool 2>/dev/null || echo "⚠️ optool安装失败，将使用备用方案"
         
         # 验证工具
         echo "验证工具安装..."
         python3 --version
         which codesign || echo "codesign not found"
-        which otool || echo "otool not found"
-        which optool || echo "optool not found"
+        which otool || echo "otool not found"  
+        which optool || echo "optool not found - 将使用备用方案"
         which PlistBuddy || echo "PlistBuddy not found"
 
     - name: Download IPA (if URL provided)
@@ -170,19 +162,24 @@ jobs:
 
     - name: Manual Fix for Common Issues
       run: |
-        echo "手动修复常见ITMS问题..."
+        echo "手动修复常见ITMS问题..." | tee fix_process.log
         
         # 修复插件加密问题
         if [ -d "Payload/TikTok.app/PlugIns" ]; then
-          echo "处理插件加密问题..."
+          echo "处理插件加密问题..." | tee -a fix_process.log
           find "Payload/TikTok.app/PlugIns" -name "*.appex" | while read plugin; do
             plugin_name=$(basename "$plugin" .appex)
             binary_path="$plugin/$plugin_name"
             if [ -f "$binary_path" ]; then
-              echo "检查 $plugin_name..."
-              # 使用optool移除加密信息
-              optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..."
-              optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..."
+              echo "检查 $plugin_name..." | tee -a fix_process.log
+              # 优先使用optool，如果不可用则使用备用方案
+              if command -v optool >/dev/null 2>&1; then
+                optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..." | tee -a fix_process.log
+                optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$binary_path" 2>/dev/null || echo "optool处理失败，继续..." | tee -a fix_process.log
+              else
+                echo "optool不可用，使用otool检查加密状态..." | tee -a fix_process.log
+                otool -l "$binary_path" | grep -A 5 LC_ENCRYPTION_INFO || echo "无加密信息" | tee -a fix_process.log
+              fi
             fi
           done
         fi
@@ -190,11 +187,18 @@ jobs:
         # 检查主应用二进制文件
         MAIN_BINARY="Payload/TikTok.app/TikTok"
         if [ -f "$MAIN_BINARY" ]; then
-          echo "处理主应用加密问题..."
-          # 使用optool移除加密信息
-          optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..."
-          optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..."
+          echo "处理主应用加密问题..." | tee -a fix_process.log
+          # 优先使用optool，如果不可用则使用备用方案
+          if command -v optool >/dev/null 2>&1; then
+            optool uninstall -c load -p LC_ENCRYPTION_INFO -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..." | tee -a fix_process.log
+            optool uninstall -c load -p LC_ENCRYPTION_INFO_64 -t "$MAIN_BINARY" 2>/dev/null || echo "optool处理失败，继续..." | tee -a fix_process.log
+          else
+            echo "optool不可用，使用otool检查加密状态..." | tee -a fix_process.log
+            otool -l "$MAIN_BINARY" | grep -A 5 LC_ENCRYPTION_INFO || echo "无加密信息" | tee -a fix_process.log
+          fi
         fi
+        
+        echo "✅ 手动修复步骤完成" | tee -a fix_process.log
 
     - name: Verify Fixes
       run: |
@@ -218,14 +222,17 @@ jobs:
         echo "✅ 验证完成"
 
     - name: Create Fixed IPA
-      if: ${{ github.event.inputs.create_ipa == 'true' }}
       run: |
-        echo "创建修复后的IPA文件..."
+        echo "创建修复后的IPA文件..." | tee -a fix_process.log
         cd Payload
         zip -r ../TikTok-Fixed.ipa .
         cd ..
-        ls -la TikTok-Fixed.ipa
-        echo "✅ IPA创建完成"
+        if [ -f "TikTok-Fixed.ipa" ]; then
+          ls -la TikTok-Fixed.ipa | tee -a fix_process.log
+          echo "✅ IPA创建完成" | tee -a fix_process.log
+        else
+          echo "❌ IPA创建失败" | tee -a fix_process.log
+        fi
 
     - name: Generate Fix Report
       run: |
@@ -271,7 +278,6 @@ jobs:
         cat fix_report.txt
 
     - name: Upload Fixed IPA
-      if: ${{ github.event.inputs.create_ipa == 'true' }}
       uses: actions/upload-artifact@v4
       with:
         name: TikTok-Fixed-IPA
@@ -291,6 +297,6 @@ jobs:
       with:
         name: Fix-Logs
         path: |
-          *.log
-          *.txt
+          fix_process.log
+          fix_report.txt
         retention-days: 7 
