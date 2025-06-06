@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main, master ]
 
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   build:
     runs-on: macos-latest
@@ -153,60 +157,61 @@ jobs:
           ./output/1212.deb
         retention-days: 30
     
-    - name: Create Release
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v${{ github.run_number }}
-        name: Release v${{ github.run_number }}
-        body: |
-          🚀 自动构建的iOS Dylib文件
-          
-          ## 📱 文件说明
-          - `1212.dylib`: 编译好的动态库文件 (arm64架构)
-          - `1212.deb`: Cydia安装包
-          
-          ## ✨ 功能特性
-          - URL拦截和重定向 (wyURLProtocol)
-          - 支持iOS 12.0+
-          - 使用Clang直接编译
-          - 无需MonkeyDev/Theos环境
-          
-          ## 📥 安装方法
-          
-          ### 方法一：安装deb包 (推荐)
-          ```bash
-          # 下载并安装
-          dpkg -i 1212.deb
-          
-          # 重启SpringBoard
-          killall -9 SpringBoard
-          ```
-          
-          ### 方法二：手动安装dylib
-          ```bash
-          # 复制到目标目录
-          cp 1212.dylib /Library/MobileSubstrate/DynamicLibraries/
-          
-          # 重启SpringBoard
-          killall -9 SpringBoard
-          ```
-          
-          ## 🔧 技术细节
-          - **架构**: arm64
-          - **最低iOS版本**: 12.0
-          - **依赖框架**: Foundation, UIKit, AVFoundation
-          - **编译器**: Clang (Xcode)
-          - **签名工具**: ldid
-          
-          ## ⚙️ 构建信息
-          - 构建时间: ${{ github.event.head_commit.timestamp }}
-          - 提交SHA: ${{ github.sha }}
-          - 构建编号: #${{ github.run_number }}
-        files: |
-          ./output/1212.dylib
-          ./output/1212.deb
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    # 注释掉Create Release步骤以避免权限问题
+    # - name: Create Release
+    #   if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    #   uses: softprops/action-gh-release@v1
+    #   with:
+    #     tag_name: v${{ github.run_number }}
+    #     name: Release v${{ github.run_number }}
+    #     body: |
+    #       🚀 自动构建的iOS Dylib文件
+    #       
+    #       ## 📱 文件说明
+    #       - `1212.dylib`: 编译好的动态库文件 (arm64架构)
+    #       - `1212.deb`: Cydia安装包
+    #       
+    #       ## ✨ 功能特性
+    #       - URL拦截和重定向 (wyURLProtocol)
+    #       - 支持iOS 12.0+
+    #       - 使用Clang直接编译
+    #       - 无需MonkeyDev/Theos环境
+    #       
+    #       ## 📥 安装方法
+    #       
+    #       ### 方法一：安装deb包 (推荐)
+    #       ```bash
+    #       # 下载并安装
+    #       dpkg -i 1212.deb
+    #       
+    #       # 重启SpringBoard
+    #       killall -9 SpringBoard
+    #       ```
+    #       
+    #       ### 方法二：手动安装dylib
+    #       ```bash
+    #       # 复制到目标目录
+    #       cp 1212.dylib /Library/MobileSubstrate/DynamicLibraries/
+    #       
+    #       # 重启SpringBoard
+    #       killall -9 SpringBoard
+    #       ```
+    #       
+    #       ## 🔧 技术细节
+    #       - **架构**: arm64
+    #       - **最低iOS版本**: 12.0
+    #       - **依赖框架**: Foundation, UIKit, AVFoundation
+    #       - **编译器**: Clang (Xcode)
+    #       - **签名工具**: ldid
+    #       
+    #       ## ⚙️ 构建信息
+    #       - 构建时间: ${{ github.event.head_commit.timestamp }}
+    #       - 提交SHA: ${{ github.sha }}
+    #       - 构建编号: #${{ github.run_number }}
+    #     files: |
+    #       ./output/1212.dylib
+    #       ./output/1212.deb
+    #     draft: false
+    #     prerelease: false
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
