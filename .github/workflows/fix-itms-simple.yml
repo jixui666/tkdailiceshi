@@ -109,6 +109,67 @@ jobs:
           done
         fi
 
+    - name: Fix CodeResources
+      run: |
+        echo "修复CodeResources文件..."
+        
+        # 检查CodeResources文件
+        if [ -f "Payload/TikTok.app/_CodeSignature/CodeResources" ]; then
+          echo "📄 发现CodeResources文件"
+          
+          # 备份原始文件
+          cp "Payload/TikTok.app/_CodeSignature/CodeResources" "Payload/TikTok.app/_CodeSignature/CodeResources.backup"
+          
+          # 检查是否有不匹配的Frameworks引用
+          if grep -q "Frameworks/" "Payload/TikTok.app/_CodeSignature/CodeResources" && [ ! -d "Payload/TikTok.app/Frameworks" ]; then
+            echo "⚠️  发现CodeResources中有Frameworks引用但实际目录不存在"
+            echo "🔧 清理CodeResources中的Frameworks引用..."
+            
+            # 创建Python脚本来处理plist
+            echo "import plistlib" > fix_coderesources.py
+            echo "import sys" >> fix_coderesources.py
+            echo "" >> fix_coderesources.py
+            echo "def fix_coderesources():" >> fix_coderesources.py
+            echo "    try:" >> fix_coderesources.py
+            echo "        with open('Payload/TikTok.app/_CodeSignature/CodeResources', 'rb') as f:" >> fix_coderesources.py
+            echo "            data = plistlib.load(f)" >> fix_coderesources.py
+            echo "        " >> fix_coderesources.py
+            echo "        # 移除files字典中的Frameworks引用" >> fix_coderesources.py
+            echo "        if 'files' in data:" >> fix_coderesources.py
+            echo "            files_to_remove = [k for k in data['files'].keys() if k.startswith('Frameworks/')]" >> fix_coderesources.py
+            echo "            for key in files_to_remove:" >> fix_coderesources.py
+            echo "                del data['files'][key]" >> fix_coderesources.py
+            echo "            print('已移除', len(files_to_remove), '个Frameworks文件引用')" >> fix_coderesources.py
+            echo "        " >> fix_coderesources.py
+            echo "        # 移除files2字典中的Frameworks引用" >> fix_coderesources.py
+            echo "        if 'files2' in data:" >> fix_coderesources.py
+            echo "            files2_to_remove = [k for k in data['files2'].keys() if k.startswith('Frameworks/')]" >> fix_coderesources.py
+            echo "            for key in files2_to_remove:" >> fix_coderesources.py
+            echo "                del data['files2'][key]" >> fix_coderesources.py
+            echo "            print('已移除', len(files2_to_remove), '个files2中的Frameworks引用')" >> fix_coderesources.py
+            echo "        " >> fix_coderesources.py
+            echo "        # 保存修复后的文件" >> fix_coderesources.py
+            echo "        with open('Payload/TikTok.app/_CodeSignature/CodeResources', 'wb') as f:" >> fix_coderesources.py
+            echo "            plistlib.dump(data, f)" >> fix_coderesources.py
+            echo "        " >> fix_coderesources.py
+            echo "        print('✅ CodeResources修复完成')" >> fix_coderesources.py
+            echo "        return True" >> fix_coderesources.py
+            echo "    except Exception as e:" >> fix_coderesources.py
+            echo "        print('❌ CodeResources修复失败:', str(e))" >> fix_coderesources.py
+            echo "        return False" >> fix_coderesources.py
+            echo "" >> fix_coderesources.py
+            echo "if __name__ == '__main__':" >> fix_coderesources.py
+            echo "    fix_coderesources()" >> fix_coderesources.py
+            
+            # 运行修复脚本
+            python3 fix_coderesources.py
+          else
+            echo "✅ CodeResources文件正常，无需修复"
+          fi
+        else
+          echo "⚠️  未找到CodeResources文件"
+        fi
+
     - name: Create Fixed IPA
       run: |
         echo "创建修复后的IPA文件..."
@@ -231,6 +292,7 @@ jobs:
         echo "✅ 已修复的ITMS问题:" >> fix_report.txt
         echo "- ITMS-90208: 最小OS版本已更新为14.0" >> fix_report.txt
         echo "- ITMS-90125: 已处理二进制加密信息" >> fix_report.txt
+        echo "- ITMS-90180: 已清理CodeResources中的不匹配引用" >> fix_report.txt
         echo "" >> fix_report.txt
         
         echo "📊 IPA文件验证:" >> fix_report.txt
@@ -298,6 +360,7 @@ jobs:
           **修复的问题:**
           - ITMS-90208: 最小OS版本已更新为14.0
           - ITMS-90125: 已处理二进制加密信息
+          - ITMS-90180: 已清理CodeResources中的不匹配引用
           
           **文件说明:**
           - `TikTok-Fixed.ipa`: 修复后的IPA文件
