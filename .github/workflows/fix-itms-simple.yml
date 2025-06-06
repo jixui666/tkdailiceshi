@@ -53,41 +53,32 @@ jobs:
 
     - name: Create Python Fix Script
       run: |
-        cat > fix_plist.py << 'EOF'
-import plistlib
-import sys
-import os
-
-def fix_info_plist():
-    info_plist_path = "Payload/TikTok.app/Info.plist"
-    
-    if not os.path.exists(info_plist_path):
-        print("❌ 未找到Info.plist文件")
-        return False
-    
-    try:
-        with open(info_plist_path, 'rb') as f:
-            plist_data = plistlib.load(f)
-        
-        current_version = plist_data.get('MinimumOSVersion', '未设置')
-        print('当前MinimumOSVersion: ' + str(current_version))
-        
-        plist_data['MinimumOSVersion'] = '14.0'
-        
-        with open(info_plist_path, 'wb') as f:
-            plistlib.dump(plist_data, f)
-        
-        print('✅ 已更新MinimumOSVersion为: 14.0')
-        return True
-        
-    except Exception as e:
-        print('❌ 处理Info.plist失败: ' + str(e))
-        return False
-
-if __name__ == '__main__':
-    success = fix_info_plist()
-    sys.exit(0 if success else 1)
-EOF
+        echo "import plistlib" > fix_plist.py
+        echo "import sys" >> fix_plist.py
+        echo "import os" >> fix_plist.py
+        echo "" >> fix_plist.py
+        echo "def fix_info_plist():" >> fix_plist.py
+        echo "    info_plist_path = 'Payload/TikTok.app/Info.plist'" >> fix_plist.py
+        echo "    if not os.path.exists(info_plist_path):" >> fix_plist.py
+        echo "        print('❌ 未找到Info.plist文件')" >> fix_plist.py
+        echo "        return False" >> fix_plist.py
+        echo "    try:" >> fix_plist.py
+        echo "        with open(info_plist_path, 'rb') as f:" >> fix_plist.py
+        echo "            plist_data = plistlib.load(f)" >> fix_plist.py
+        echo "        current_version = plist_data.get('MinimumOSVersion', '未设置')" >> fix_plist.py
+        echo "        print('当前MinimumOSVersion: ' + str(current_version))" >> fix_plist.py
+        echo "        plist_data['MinimumOSVersion'] = '14.0'" >> fix_plist.py
+        echo "        with open(info_plist_path, 'wb') as f:" >> fix_plist.py
+        echo "            plistlib.dump(plist_data, f)" >> fix_plist.py
+        echo "        print('✅ 已更新MinimumOSVersion为: 14.0')" >> fix_plist.py
+        echo "        return True" >> fix_plist.py
+        echo "    except Exception as e:" >> fix_plist.py
+        echo "        print('❌ 处理Info.plist失败: ' + str(e))" >> fix_plist.py
+        echo "        return False" >> fix_plist.py
+        echo "" >> fix_plist.py
+        echo "if __name__ == '__main__':" >> fix_plist.py
+        echo "    success = fix_info_plist()" >> fix_plist.py
+        echo "    sys.exit(0 if success else 1)" >> fix_plist.py
 
     - name: Fix Info.plist
       run: |
